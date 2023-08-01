@@ -1,19 +1,10 @@
-import Layout from '@/components/layout'
-import ComponentsLayout from '@/components/componentsLayout'
-import type { ReactElement } from 'react'
+import BaseHead from '@/components/baseHead'
 
 export default function Components() {
   return (
     <>
+      <BaseHead title="Components" />
       <h1>Intro</h1>
     </>
-  )
-}
-
-Components.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <ComponentsLayout>{page}</ComponentsLayout>
-    </Layout>
   )
 }

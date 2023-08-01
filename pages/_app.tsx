@@ -1,22 +1,16 @@
 import '@/styles/styles.css'
-import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import Layout from '@/components/layout'
+import ComponentsLayout from '@/components/componentsLayout'
 import type { AppProps } from 'next/app'
-import type { ReactElement, ReactNode } from 'react'
-import type { NextPage } from 'next'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page)
+export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter()
 
   return (
     <>
@@ -31,7 +25,17 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      {getLayout(<Component {...pageProps} />)}
+      {router.pathname.startsWith('/components') ? (
+        <Layout>
+          <ComponentsLayout>
+            <Component {...pageProps} />
+          </ComponentsLayout>
+        </Layout>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </>
   )
 }

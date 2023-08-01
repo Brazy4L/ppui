@@ -1,19 +1,10 @@
-import Layout from '@/components/layout'
-import ComponentsLayout from '@/components/componentsLayout'
-import type { ReactElement } from 'react'
+import BaseHead from '@/components/baseHead'
 
 export default function Accordion() {
   return (
     <>
+      <BaseHead title="Accordion - Components" />
       <h1>Accordion</h1>
     </>
-  )
-}
-
-Accordion.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <ComponentsLayout>{page}</ComponentsLayout>
-    </Layout>
   )
 }
