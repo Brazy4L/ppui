@@ -1,6 +1,6 @@
 import Sidebar from './sidebar'
 
-export default function ComponentsLayout({ children }) {
+export default function ComponentsLayout({ children }: React.PropsWithChildren<{}>) {
   return (
     <div>
       <Sidebar />
