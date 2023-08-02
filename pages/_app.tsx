@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Script id="apply-theme" strategy="beforeInteractive">
+      <Script id="theme" strategy="beforeInteractive">
         {`
           const meta = document.createElement('meta');
           meta.name = "color-scheme";
@@ -36,6 +36,15 @@ export default function App({ Component, pageProps }: AppProps) {
             document.documentElement.className = 'dark';
             document.querySelector('meta[name="color-scheme"]').content = 'dark';
           }
+        `}
+      </Script>
+      <Script id="favicon" strategy="lazyOnload">
+        {`
+        const favicon = document.querySelector('link[rel="icon"]')
+        document.addEventListener("visibilitychange", () => {
+          const hidden = document.hidden
+          favicon.setAttribute("href", \`/favicon\${hidden ? "-hidden" : ""}.svg\`)
+        })
         `}
       </Script>
       {router.pathname.startsWith('/components') ? (
