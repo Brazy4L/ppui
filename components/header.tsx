@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Dispatch, SetStateAction } from 'react'
 
 export default function Header({
@@ -48,6 +47,7 @@ export default function Header({
             Components
           </Link>
           <button
+            className="rounded-full p-1 ring-1 ring-light-bg-secondary dark:ring-dark-bg-secondary"
             onClick={() => {
               setTheme(!theme)
               localStorage.setItem('theme', JSON.stringify(!theme))
