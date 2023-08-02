@@ -7,7 +7,7 @@ export default function Sidebar() {
   const router = useRouter()
 
   return (
-    <nav className="flex flex-col gap-1 overflow-y-scroll pr-4 font-semibold">
+    <nav className="flex flex-col gap-1 overflow-y-scroll pr-4 font-semibold h-[calc(100vh-6rem-1px)]">
       <Link
         className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
           router.pathname === '/components'

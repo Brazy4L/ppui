@@ -14,7 +14,7 @@ export default function Header({
 
   return (
     <>
-      <header className="mx-auto max-w-7xl p-4">
+      <header className="mx-auto grid h-16 max-w-7xl p-4">
         <nav className="flex items-center gap-4 font-semibold">
           <Link className="flex min-w-fit items-center gap-4" href="/">
             <svg width="32" height="32" viewBox="0 0 32 32">
@@ -48,7 +48,7 @@ export default function Header({
             Components
           </Link>
           <button
-            className="h-[32px] w-[32px] rounded-full p-1 ring-1 ring-light-bg-secondary dark:ring-dark-bg-secondary"
+            className="h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-secondary dark:ring-dark-bg-secondary"
             onClick={() => {
               setTheme(!theme)
               localStorage.setItem('theme', JSON.stringify(!theme))
