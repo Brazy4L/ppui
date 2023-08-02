@@ -3,3 +3,5 @@
 /.next
 /out
 next-env.d.ts
+
+/components/playground
