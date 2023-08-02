@@ -1,5 +1,6 @@
 import Header from './header'
 import { useState, useEffect } from 'react'
+
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
   const [theme, setTheme] = useState(false)
 
