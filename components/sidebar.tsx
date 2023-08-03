@@ -33,8 +33,9 @@ export default function Sidebar({
   const router = useRouter()
 
   const optionsHandler = (key: string, value: string) => {
-    setOptions({ ...options, [key]: value })
-    // localStorage
+    let newOptions = { ...options, [key]: value }
+    setOptions(newOptions)
+    localStorage.setItem('options', JSON.stringify(newOptions))
   }
 
   return (
