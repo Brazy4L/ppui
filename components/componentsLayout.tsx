@@ -1,12 +1,27 @@
+import { createContext, useState } from 'react'
 import Sidebar from './sidebar'
+
+export const Options = createContext({
+  framework: 'react',
+  css: 'tw',
+  js: 'ts',
+})
 
 export default function ComponentsLayout({
   children,
 }: React.PropsWithChildren<{}>) {
+  const [options, setOptions] = useState({
+    framework: 'react',
+    css: 'tw',
+    js: 'ts',
+  })
+
   return (
-    <div className="grid grid-cols-[200px,min(80rem,calc(100%-200px))] justify-center gap-4 p-4">
-      <Sidebar />
-      <main className="w-full max-w-7xl">{children}</main>
+    <div className="grid grid-cols-[350px,min(80rem,calc(100%-350px))] justify-center gap-4 py-4 pr-4">
+      <Sidebar options={options} setOptions={setOptions}/>
+      <Options.Provider value={options}>
+        <main className="w-full max-w-7xl">{children}</main>
+      </Options.Provider>
     </div>
   )
 }
