@@ -17,7 +17,7 @@ module.exports = {
         'light-primary': '#8c4ffb', // primary color
         'light-secondary': '#7c37fb', // hover state
         'light-bg-primary': '#fefefe', // main background
-        'light-bg-secondary': '#e1e1e1', // complementary background
+        'light-bg-secondary': '#F7F7F7', // complementary background
         'light-bg-alternative': '#c2c2c2', // complementary background
         'light-text-primary': '#000', // primary text
         'light-text-secondary': '#646464', // lower contrast text
