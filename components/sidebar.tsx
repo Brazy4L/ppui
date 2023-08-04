@@ -11,17 +11,13 @@ const frameworks = [
   { name: 'Svelte', icon: 'logos:svelte-icon', shorthand: 'svelte' },
   { name: 'Solid', icon: 'logos:solidjs-icon', shorthand: 'solid' },
 ]
-const css = [
-  { name: 'CSS', icon: 'logos:css-3', shorthand: 'css' },
-  { name: 'Tailwind', icon: 'logos:tailwindcss-icon', shorthand: 'tw' },
-]
 
 export default function Sidebar({
   options,
   setOptions,
 }: {
-  options: { framework: string; css: string }
-  setOptions: Dispatch<SetStateAction<{ framework: string; css: string }>>
+  options: { framework: string }
+  setOptions: Dispatch<SetStateAction<{ framework: string }>>
 }) {
   const router = useRouter()
 
@@ -47,22 +43,6 @@ export default function Sidebar({
               icon={framework.icon}
               name={framework.name}
               onClick={() => optionsHandler('framework', framework.shorthand)}
-            />
-          ))}
-        </div>
-        <hr className="border-light-bg-secondary dark:border-dark-bg-secondary" />
-        <div className="grid grid-cols-2 gap-2">
-          {css.map((item, index) => (
-            <Button
-              key={index}
-              className={
-                item.shorthand === options.css
-                  ? 'ring-2 ring-light-primary dark:ring-dark-primary'
-                  : ''
-              }
-              icon={item.icon}
-              name={item.name}
-              onClick={() => optionsHandler('css', item.shorthand)}
             />
           ))}
         </div>

@@ -3,7 +3,6 @@ import Sidebar from './sidebar'
 
 export const Options = createContext({
   framework: 'react',
-  css: 'tw',
 })
 
 export default function ComponentsLayout({
@@ -11,7 +10,6 @@ export default function ComponentsLayout({
 }: React.PropsWithChildren<{}>) {
   const [options, setOptions] = useState({
     framework: 'react',
-    css: 'tw',
   })
 
   useEffect(() => {
