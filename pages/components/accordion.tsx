@@ -11,7 +11,6 @@ export default function Accordion() {
       <BaseHead title="Accordion - Components" />
       <div>{contextOptions.framework}</div>
       <div>{contextOptions.css}</div>
-      <div>{contextOptions.js}</div>
       <div className="w-full rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
         <details className="group">
           <summary className="flex cursor-pointer p-4">

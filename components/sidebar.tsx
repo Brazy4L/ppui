@@ -16,19 +16,12 @@ const css = [
   { name: 'Tailwind', icon: 'logos:tailwindcss-icon', shorthand: 'tw' },
 ]
 
-const js = [
-  { name: 'JavaScript', icon: 'logos:javascript', shorthand: 'js' },
-  { name: 'TypeScript', icon: 'logos:typescript-icon', shorthand: 'ts' },
-]
-
 export default function Sidebar({
   options,
   setOptions,
 }: {
-  options: { framework: string; css: string; js: string }
-  setOptions: Dispatch<
-    SetStateAction<{ framework: string; css: string; js: string }>
-  >
+  options: { framework: string; css: string }
+  setOptions: Dispatch<SetStateAction<{ framework: string; css: string }>>
 }) {
   const router = useRouter()
 
@@ -70,22 +63,6 @@ export default function Sidebar({
               icon={item.icon}
               name={item.name}
               onClick={() => optionsHandler('css', item.shorthand)}
-            />
-          ))}
-        </div>
-        <hr className="border-light-bg-secondary dark:border-dark-bg-secondary" />
-        <div className="grid grid-cols-2 gap-2">
-          {js.map((item, index) => (
-            <Button
-              key={index}
-              className={
-                item.shorthand === options.js
-                  ? 'ring-2 ring-light-primary dark:ring-dark-primary'
-                  : ''
-              }
-              icon={item.icon}
-              name={item.name}
-              onClick={() => optionsHandler('js', item.shorthand)}
             />
           ))}
         </div>

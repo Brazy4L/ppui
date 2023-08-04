@@ -4,7 +4,6 @@ import Sidebar from './sidebar'
 export const Options = createContext({
   framework: 'react',
   css: 'tw',
-  js: 'ts',
 })
 
 export default function ComponentsLayout({
@@ -13,7 +12,6 @@ export default function ComponentsLayout({
   const [options, setOptions] = useState({
     framework: 'react',
     css: 'tw',
-    js: 'ts',
   })
 
   useEffect(() => {
