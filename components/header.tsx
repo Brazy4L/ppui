@@ -93,7 +93,7 @@ export default function Header({
           </button>
         </nav>
       </header>
-      <hr className="border-light-bg-secondary dark:border-dark-bg-secondary" />
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
     </>
   )
 }

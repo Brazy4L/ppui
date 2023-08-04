@@ -79,9 +79,9 @@ export default function Sidebar({
 function Heading({ heading }: { heading: string }) {
   return (
     <div className="flex items-center">
-      <div className="h-px w-full bg-light-bg-secondary dark:bg-dark-bg-secondary"></div>
-      <h2 className="min-w-max">{heading}</h2>
-      <div className="h-px w-full bg-light-bg-secondary dark:bg-dark-bg-secondary"></div>
+      <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
+      <h2 className="min-w-max text-light-text-secondary dark:text-dark-text-secondary">{heading}</h2>
+      <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
     </div>
   )
 }
@@ -99,7 +99,7 @@ function Button({
 }) {
   return (
     <button
-      className={'flex gap-2 rounded-2xl bg-light-bg-secondary p-4 transition-all dark:bg-dark-bg-secondary '.concat(
+      className={'flex gap-2 rounded-lg bg-light-bg-secondary p-4 transition-all dark:bg-dark-bg-secondary '.concat(
         className
       )}
       onClick={onClick}
