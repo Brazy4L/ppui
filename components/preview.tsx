@@ -1,14 +1,36 @@
-import { useState } from 'react'
+import { useState, useContext, ElementType } from 'react'
 import { Icon } from '@iconify-icon/react'
-import { ComponentAccordionRegularOne } from './components/accordion'
-import { react } from '@/data/components/accordion'
+import { Options } from '@/components/componentsLayout'
 
-export default function Preview() {
+interface Props {
+  name: string
+  Comp: ElementType
+  code:
+    | {
+        react: HTMLElement
+        vue: HTMLElement
+        svelte: HTMLElement
+        solid: HTMLElement
+      }
+    | any
+  preCode:
+    | {
+        react: string
+        vue: string
+        svelte: string
+        solid: string
+      }
+    | any
+}
+
+export default function Preview({ name, Comp, code, preCode }: Props) {
   const [preview, setPreview] = useState(true)
+  const contextOptions = useContext(Options)
+
   return (
     <>
-      <div className="flex justify-between gap-4 font-semibold">
-        <h2 className="p-3">Regular One</h2>
+      <div className="flex items-center justify-between gap-4 font-semibold">
+        <h2 className="ml-2">{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
             className={'rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
@@ -31,21 +53,30 @@ export default function Preview() {
             Code
           </button>
         </div>
-        <Icon
-          icon="material-symbols:content-copy-outline-rounded"
-          className="cursor-pointer rounded-lg p-3 text-light-text-secondary transition-colors dark:text-dark-text-secondary"
-          width="24"
-          height="24"
-          onClick={() => navigator.clipboard.writeText(react)}
-        />
+        <button
+          className="mr-2 h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+          onClick={() =>
+            navigator.clipboard.writeText(preCode[contextOptions.framework])
+          }
+        >
+          <Icon
+            icon="material-symbols:content-copy-outline-rounded"
+            className="cursor-pointer text-light-text-secondary dark:text-dark-text-secondary"
+            width="24"
+            height="24"
+          />
+        </button>
       </div>
-      <div className="mt-2 rounded-lg border-2 border-light-bg-alternative bg-light-bg-secondary p-2 dark:border-dark-bg-alternative dark:bg-dark-bg-secondary">
-        {preview ? (
-          <ComponentAccordionRegularOne />
-        ) : (
-          <code className="overflow-x-auto whitespace-pre">{react}</code>
-        )}
-      </div>
+      {preview ? (
+        <div className="mt-2 rounded-lg border-2 border-light-bg-alternative bg-light-bg-secondary p-2 dark:border-dark-bg-alternative dark:bg-dark-bg-secondary">
+          <Comp />
+        </div>
+      ) : (
+        <div
+          className="mt-2 rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
+          dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
+        ></div>
+      )}
     </>
   )
 }

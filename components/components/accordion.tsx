@@ -24,9 +24,9 @@ const items = [
   },
 ]
 
-export function ComponentAccordionRegularOne() {
+export function AccordionRegularOne() {
   return (
-    <div className="w-full rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
+    <div className="w-full rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
       {items.map((item, index) => (
         <Fragment key={index}>
           <details className="group">
@@ -52,10 +52,10 @@ export function ComponentAccordionRegularOne() {
   )
 }
 
-export function ComponentAccordionRegularTwo() {
+export function AccordionRegularTwo() {
   return (
     <div className="flex w-full flex-col gap-4">
-      <details className="group rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
         <summary className="flex cursor-pointer p-4">
           <span className="basis-full text-lg font-bold">Item 1</span>
           <Icon
@@ -70,7 +70,7 @@ export function ComponentAccordionRegularTwo() {
           totam!
         </p>
       </details>
-      <details className="group rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
         <summary className="flex cursor-pointer p-4">
           <span className="basis-full text-lg font-bold">Item 2</span>
           <Icon
@@ -85,7 +85,7 @@ export function ComponentAccordionRegularTwo() {
           totam!
         </p>
       </details>
-      <details className="group rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
         <summary className="flex cursor-pointer p-4">
           <span className="basis-full text-lg font-bold">Item 3</span>
           <Icon
@@ -100,7 +100,7 @@ export function ComponentAccordionRegularTwo() {
           totam!
         </p>
       </details>
-      <details className="group rounded-2xl bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
         <summary className="flex cursor-pointer p-4">
           <span className="basis-full text-lg font-bold">Item 4</span>
           <Icon
