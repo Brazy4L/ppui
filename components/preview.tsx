@@ -29,7 +29,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
 
   return (
     <div className="mb-4 mt-4 lg:mt-0">
-      <div className="flex flex-wrap items-center justify-center gap-4 font-semibold lg:justify-between">
+      <div className="flex flex-wrap items-center justify-center gap-4 font-semibold sm:justify-between">
         <h2>{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
