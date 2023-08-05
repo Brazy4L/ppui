@@ -28,7 +28,7 @@ export default function Sidebar({
   }
 
   return (
-    <nav className="top-20 flex flex-col gap-2 overflow-y-auto rounded-lg border-8 border-light-bg-alternative p-4 font-semibold dark:border-dark-bg-alternative lg:sticky lg:h-[calc(100vh-6rem-1px)]">
+    <nav className="top-20 flex flex-col gap-2 overflow-y-auto rounded-lg border-2 border-light-bg-alternative p-4 font-semibold dark:border-dark-bg-alternative lg:sticky lg:h-[calc(100vh-6rem-1px)]">
       <div className="flex flex-col gap-2">
         <Heading heading="Pick your poison" />
         <div className="grid grid-cols-2 gap-2">

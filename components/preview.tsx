@@ -1,6 +1,7 @@
 import { useState, useContext, ElementType } from 'react'
 import { Icon } from '@iconify-icon/react'
 import { Options } from '@/components/componentsLayout'
+import { Rnd } from 'react-rnd'
 
 interface Props {
   name: string
@@ -68,8 +69,30 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
         </button>
       </div>
       {preview ? (
-        <div className="mt-2 flex justify-center">
-          <Comp />
+        <div className="mt-2">
+          <Rnd
+            default={{ x: 0, y: 0, width: '100%', height: 'auto' }}
+            className="rounded-lg border-2 border-light-bg-alternative p-2 dark:border-dark-bg-alternative"
+            minWidth={320}
+            maxWidth={1280}
+            bounds="parent"
+            disableDragging={true}
+            enableResizing={{
+              top: false,
+              right: true,
+              bottom: false,
+              left: false,
+              topRight: false,
+              bottomRight: false,
+              bottomLeft: false,
+              topLeft: false,
+            }}
+            style={{ position: 'static' }}
+          >
+            <div className="flex justify-center">
+              <Comp />
+            </div>
+          </Rnd>
         </div>
       ) : (
         <div
