@@ -28,7 +28,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
   const contextOptions = useContext(Options)
 
   return (
-    <>
+    <main className="mb-4">
       <div className="flex items-center justify-between gap-4 font-semibold">
         <h2 className="ml-2">{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
@@ -68,15 +68,15 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
         </button>
       </div>
       {preview ? (
-        <div className="mt-2 rounded-lg border-2 border-light-bg-alternative bg-light-bg-secondary p-2 dark:border-dark-bg-alternative dark:bg-dark-bg-secondary">
+        <div className="mt-2 flex justify-center">
           <Comp />
         </div>
       ) : (
         <div
-          className="mt-2 rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
+          className="mt-2 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
           dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
         ></div>
       )}
-    </>
+    </main>
   )
 }

@@ -1,16 +1,8 @@
 import BaseHead from '@/components/baseHead'
 import Preview from '@/components/preview'
+import { Code } from '@/utils/types'
 import { AccordionRegularOne } from '@/components/components/accordion'
 import { accordionRegularOne } from '@/data/components/accordion'
-
-interface Code {
-  code: {
-    react: HTMLElement
-    vue: HTMLElement
-    svelte: HTMLElement
-    solid: HTMLElement
-  }
-}
 
 export default function Accordion({ code }: Code) {
   return (
@@ -22,6 +14,7 @@ export default function Accordion({ code }: Code) {
         code={code}
         preCode={accordionRegularOne}
       />
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
     </>
   )
 }
