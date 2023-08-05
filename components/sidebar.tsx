@@ -28,7 +28,7 @@ export default function Sidebar({
   }
 
   return (
-    <nav className="flex h-[calc(100vh-6rem-1px)] flex-col gap-2 overflow-y-scroll px-4 font-semibold">
+    <nav className="flex flex-col gap-2 rounded-lg border-8 border-light-bg-alternative p-4 font-semibold dark:border-dark-bg-alternative lg:h-[calc(100vh-6rem-1px)]">
       <div className="flex flex-col gap-2">
         <Heading heading="Pick your poison" />
         <div className="grid grid-cols-2 gap-2">
@@ -80,7 +80,9 @@ function Heading({ heading }: { heading: string }) {
   return (
     <div className="flex items-center">
       <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
-      <h2 className="min-w-max text-light-text-secondary dark:text-dark-text-secondary">{heading}</h2>
+      <h2 className="min-w-max text-light-text-secondary dark:text-dark-text-secondary">
+        {heading}
+      </h2>
       <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
     </div>
   )

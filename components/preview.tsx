@@ -28,9 +28,9 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
   const contextOptions = useContext(Options)
 
   return (
-    <main className="mb-4">
-      <div className="flex items-center justify-between gap-4 font-semibold">
-        <h2 className="ml-2">{name}</h2>
+    <div className="mb-4 mt-4 lg:mt-0">
+      <div className="flex flex-wrap items-center justify-center gap-4 font-semibold lg:justify-between">
+        <h2>{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
             className={'rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
@@ -54,7 +54,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
           </button>
         </div>
         <button
-          className="mr-2 h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+          className="h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
           onClick={() =>
             navigator.clipboard.writeText(preCode[contextOptions.framework])
           }
@@ -77,6 +77,6 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
           dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
         ></div>
       )}
-    </main>
+    </div>
   )
 }

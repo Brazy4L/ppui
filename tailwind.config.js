@@ -20,6 +20,7 @@ module.exports = {
         'light-bg-secondary': '#f9f7fd', // complementary background
         'light-bg-alternative': '#ede7f9', // complementary background
         'light-text-primary': '#000', // primary text
+        // lower it more
         'light-text-secondary': '#646464', // lower contrast text
       },
     },

@@ -20,7 +20,7 @@ export default function ComponentsLayout({
   }, [])
 
   return (
-    <div className="grid grid-cols-[350px,min(80rem,calc(100%-350px))] justify-center gap-4 py-4 pr-4">
+    <div className="justify-center gap-4 p-4 lg:grid lg:grid-cols-[350px,min(80rem,calc(100%-350px))]">
       <Sidebar options={options} setOptions={setOptions} />
       <Options.Provider value={options}>
         <main className="w-full max-w-7xl">{children}</main>
