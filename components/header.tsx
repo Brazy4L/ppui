@@ -14,8 +14,8 @@ export default function Header({
 
   return (
     <>
-      <header className="mx-auto grid h-16 max-w-7xl p-4">
-        <nav className="flex items-center gap-4 font-semibold">
+      <header className="top-0 mx-auto grid h-16 border-b border-light-bg-alternative bg-light-bg-primary p-4 dark:border-dark-bg-alternative dark:bg-dark-bg-primary lg:sticky">
+        <nav className="mx-auto flex w-full max-w-7xl items-center gap-4 justify-self-stretch font-semibold">
           <Link className="flex min-w-fit items-center gap-4" href="/">
             <svg width="32" height="32" viewBox="0 0 32 32">
               <path
@@ -93,7 +93,6 @@ export default function Header({
           </button>
         </nav>
       </header>
-      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
     </>
   )
 }
