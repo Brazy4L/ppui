@@ -88,6 +88,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
               topLeft: false,
             }}
             style={{ position: 'static' }}
+            // resizeHandleComponent={{ right: <Handle /> }}
           >
             <div className="flex justify-center">
               <Comp />
@@ -103,3 +104,11 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
     </div>
   )
 }
+
+// function Handle() {
+//   return (
+//     <div className="relative left-4 top-[calc(50%-2rem)] h-16 w-3 rounded-lg bg-light-bg-alternative dark:bg-dark-bg-alternative">
+//       <div className="relative left-[3px] top-[calc(50%-1rem)] h-8 w-[6px] rounded-lg bg-light-primary dark:bg-dark-primary"></div>
+//     </div>
+//   )
+// }
