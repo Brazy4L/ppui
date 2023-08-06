@@ -29,6 +29,9 @@ export function AccordionRegularOne() {
     <div className="w-full max-w-xl rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
       {items.map((item, index) => (
         <Fragment key={index}>
+          {index > 0 && (
+            <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+          )}
           <details className="group">
             <summary className="flex cursor-pointer p-4">
               <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
@@ -43,9 +46,6 @@ export function AccordionRegularOne() {
               {item.content}
             </p>
           </details>
-          {index < items.length - 1 && (
-            <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
-          )}
         </Fragment>
       ))}
     </div>
@@ -54,67 +54,26 @@ export function AccordionRegularOne() {
 
 export function AccordionRegularTwo() {
   return (
-    <div className="flex w-full flex-col gap-4">
-      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-        <summary className="flex cursor-pointer p-4">
-          <span className="basis-full text-lg font-bold">Item 1</span>
-          <Icon
-            icon="material-symbols:keyboard-arrow-down-rounded"
-            className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
-            width="28"
-            height="28"
-          />
-        </summary>
-        <p className="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-          totam!
-        </p>
-      </details>
-      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-        <summary className="flex cursor-pointer p-4">
-          <span className="basis-full text-lg font-bold">Item 2</span>
-          <Icon
-            icon="material-symbols:keyboard-arrow-down-rounded"
-            className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
-            width="28"
-            height="28"
-          />
-        </summary>
-        <p className="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-          totam!
-        </p>
-      </details>
-      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-        <summary className="flex cursor-pointer p-4">
-          <span className="basis-full text-lg font-bold">Item 3</span>
-          <Icon
-            icon="material-symbols:keyboard-arrow-down-rounded"
-            className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
-            width="28"
-            height="28"
-          />
-        </summary>
-        <p className="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-          totam!
-        </p>
-      </details>
-      <details className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-        <summary className="flex cursor-pointer p-4">
-          <span className="basis-full text-lg font-bold">Item 4</span>
-          <Icon
-            icon="material-symbols:keyboard-arrow-down-rounded"
-            className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
-            width="28"
-            height="28"
-          />
-        </summary>
-        <p className="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-          totam!
-        </p>
-      </details>
+    <div className="flex w-full max-w-xl flex-col gap-4">
+      {items.map((item, index) => (
+        <details
+          key={index}
+          className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
+        >
+          <summary className="flex cursor-pointer p-4">
+            <span className="basis-full text-lg font-bold">{item.heading}</span>
+            <Icon
+              icon="material-symbols:keyboard-arrow-down-rounded"
+              className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+              width="28"
+              height="28"
+            />
+          </summary>
+          <p className="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
+            {item.content}
+          </p>
+        </details>
+      ))}
     </div>
   )
 }
