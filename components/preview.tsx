@@ -1,7 +1,8 @@
-import { useState, useContext, ElementType, useEffect } from 'react'
+import { useState, useContext, ElementType } from 'react'
 import { Icon } from '@iconify-icon/react'
 import { Options } from '@/components/componentsLayout'
 import { Rnd } from 'react-rnd'
+import useResizeObserver from 'use-resize-observer'
 
 interface Props {
   name: string
@@ -22,17 +23,30 @@ interface Props {
         solid: string
       }
     | any
-  width: number
+  viewportWidth: number
 }
 
-export default function Preview({ name, Comp, code, preCode, width }: Props) {
+export default function Preview({
+  name,
+  Comp,
+  code,
+  preCode,
+  viewportWidth,
+}: Props) {
   const [preview, setPreview] = useState(true)
   const contextOptions = useContext(Options)
+  const { ref, width } = useResizeObserver({ box: 'border-box' })
 
   return (
     <div className="mb-4 mt-4 lg:mt-0">
       <div className="flex flex-wrap items-center justify-center gap-4 font-semibold sm:justify-between">
-        <h2>{name}</h2>
+        <div className="flex items-center gap-2">
+          <h2>{name}</h2>
+          <div className="flex w-[76.781px] gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
+            <div className="basis-full">{width}</div>
+            <div>px</div>
+          </div>
+        </div>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
             className={'rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
@@ -70,11 +84,10 @@ export default function Preview({ name, Comp, code, preCode, width }: Props) {
         </button>
       </div>
       {preview ? (
-        <div className="mt-2">
+        <div className="mt-4">
           <Rnd
             default={{ x: 0, y: 0, width: '100%', height: 'auto' }}
-            className="rounded-lg border-2 border-light-bg-alternative p-4 dark:border-dark-bg-alternative"
-            minWidth={width > 368 ? 320 : 271}
+            minWidth={viewportWidth > 368 ? 320 : 271}
             maxWidth={1280}
             bounds="parent"
             disableDragging={true}
@@ -91,14 +104,17 @@ export default function Preview({ name, Comp, code, preCode, width }: Props) {
             style={{ position: 'static' }}
             resizeHandleComponent={{ right: <Handle /> }}
           >
-            <div className="flex justify-center">
+            <div
+              ref={ref}
+              className="flex justify-center border-r border-light-bg-alternative dark:border-dark-bg-alternative"
+            >
               <Comp />
             </div>
           </Rnd>
         </div>
       ) : (
         <div
-          className="scrbar codebar mt-2 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
+          className="scrbar codebar mt-4 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
           dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
         ></div>
       )}

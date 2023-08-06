@@ -9,18 +9,15 @@ import { AccordionRegularTwo } from '@/components/components/accordion'
 import { accordionRegularTwo } from '@/data/components/accordion'
 
 export default function Accordion(props: any) {
-  const [width, setWidth] = useState(0)
+  const [viewportWidth, setViewportWidth] = useState(0)
 
   useEffect(() => {
-    setWidth(window.innerWidth)
-
+    setViewportWidth(window.innerWidth)
     const updateWindowDimensions = () => {
       const newWidth = window.innerWidth
-      setWidth(newWidth)
+      setViewportWidth(newWidth)
     }
-
     window.addEventListener('resize', updateWindowDimensions)
-
     return () => window.removeEventListener('resize', updateWindowDimensions)
   }, [])
 
@@ -32,7 +29,7 @@ export default function Accordion(props: any) {
         Comp={() => <AccordionRegularOne />}
         code={props.accordionRegularOne}
         preCode={accordionRegularOne}
-        width={width}
+        viewportWidth={viewportWidth}
       />
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
@@ -40,7 +37,7 @@ export default function Accordion(props: any) {
         Comp={() => <AccordionRegularTwo />}
         code={props.accordionRegularTwo}
         preCode={accordionRegularTwo}
-        width={width}
+        viewportWidth={viewportWidth}
       />
     </>
   )
