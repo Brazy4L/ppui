@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --scrollbarBG: #00000000;
+  --thumbBG: #8129de;
+  --thumbBGCode: #8b8b8b;
+}
+
+:root.dark {
+  --thumbBG: #8b8b8b;
+}
+
+.scrbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.scrbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrbar::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+
+.scrbar::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+}
+
+.codebar {
+  scrollbar-color: var(--thumbBGCode) var(--scrollbarBG);
+}
+
+.codebar::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBGCode);
+}

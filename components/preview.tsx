@@ -97,7 +97,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
         </div>
       ) : (
         <div
-          className="mt-2 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
+          className="scrbar codebar mt-2 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
           dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
         ></div>
       )}
