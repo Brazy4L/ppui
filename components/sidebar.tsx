@@ -58,7 +58,7 @@ export default function Sidebar({
       >
         Intro
       </Link>
-      <Heading heading="Components" />
+      <Heading heading="Elements" />
       {links.map((link, index) => (
         <Link
           className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
@@ -72,11 +72,6 @@ export default function Sidebar({
           {link.name}
         </Link>
       ))}
-      {Array(90)
-        .fill('')
-        .map((_, index) => (
-          <div key={index}>Word</div>
-        ))}
     </nav>
   )
 }

@@ -1,4 +1,4 @@
-import { useState, useContext, ElementType } from 'react'
+import { useState, useContext, ElementType, useEffect } from 'react'
 import { Icon } from '@iconify-icon/react'
 import { Options } from '@/components/componentsLayout'
 import { Rnd } from 'react-rnd'
@@ -22,9 +22,10 @@ interface Props {
         solid: string
       }
     | any
+  width: number
 }
 
-export default function Preview({ name, Comp, code, preCode }: Props) {
+export default function Preview({ name, Comp, code, preCode, width }: Props) {
   const [preview, setPreview] = useState(true)
   const contextOptions = useContext(Options)
 
@@ -55,14 +56,14 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
           </button>
         </div>
         <button
-          className="h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+          className="group h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
           onClick={() =>
             navigator.clipboard.writeText(preCode[contextOptions.framework])
           }
         >
           <Icon
             icon="material-symbols:content-copy-outline-rounded"
-            className="cursor-pointer text-light-text-secondary dark:text-dark-text-secondary"
+            className="cursor-pointer text-light-text-secondary transition-colors group-focus:text-light-primary dark:text-dark-text-secondary dark:group-focus:text-dark-primary"
             width="24"
             height="24"
           />
@@ -72,8 +73,8 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
         <div className="mt-2">
           <Rnd
             default={{ x: 0, y: 0, width: '100%', height: 'auto' }}
-            className="rounded-lg border-2 border-light-bg-alternative p-2 dark:border-dark-bg-alternative"
-            minWidth={320}
+            className="rounded-lg border-2 border-light-bg-alternative p-4 dark:border-dark-bg-alternative"
+            minWidth={width > 368 ? 320 : 271}
             maxWidth={1280}
             bounds="parent"
             disableDragging={true}
@@ -88,7 +89,7 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
               topLeft: false,
             }}
             style={{ position: 'static' }}
-            // resizeHandleComponent={{ right: <Handle /> }}
+            resizeHandleComponent={{ right: <Handle /> }}
           >
             <div className="flex justify-center">
               <Comp />
@@ -105,10 +106,8 @@ export default function Preview({ name, Comp, code, preCode }: Props) {
   )
 }
 
-// function Handle() {
-//   return (
-//     <div className="relative left-4 top-[calc(50%-2rem)] h-16 w-3 rounded-lg bg-light-bg-alternative dark:bg-dark-bg-alternative">
-//       <div className="relative left-[3px] top-[calc(50%-1rem)] h-8 w-[6px] rounded-lg bg-light-primary dark:bg-dark-primary"></div>
-//     </div>
-//   )
-// }
+function Handle() {
+  return (
+    <div className="relative left-[10px] top-[calc(50%-2rem)] h-16 w-2 rounded-lg bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
+  )
+}
