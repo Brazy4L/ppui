@@ -37,7 +37,7 @@ export default function Sidebar({
               key={index}
               className={
                 framework.shorthand === options.framework
-                  ? 'ring-2 ring-light-primary dark:ring-dark-primary'
+                  ? 'text-light-primary ring-2 ring-light-primary dark:text-dark-primary dark:ring-dark-primary'
                   : ''
               }
               icon={framework.icon}
@@ -101,7 +101,7 @@ function Button({
 }) {
   return (
     <button
-      className={'flex gap-2 rounded-lg bg-light-bg-secondary p-4 transition-all dark:bg-dark-bg-secondary '.concat(
+      className={'flex gap-2 rounded-lg bg-light-bg-secondary p-4 transition-colors hover:text-light-primary dark:bg-dark-bg-secondary dark:hover:text-dark-primary '.concat(
         className
       )}
       onClick={onClick}
