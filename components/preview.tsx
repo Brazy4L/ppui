@@ -44,31 +44,49 @@ export default function Preview({
       <div className="flex flex-wrap items-center justify-center gap-4 font-semibold sm:justify-between">
         <div className="flex items-center gap-2">
           <h2>{name}</h2>
-          <div className="flex w-[76.781px] gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
-            <div className="basis-full">{width}</div>
+          <div className="flex  gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
+            <Icon
+              icon="material-symbols:width-rounded"
+              className="text-light-text-secondary dark:text-dark-text-secondary"
+              width="24"
+              height="24"
+            />
+            <div className="w-[4ch] text-center">{width}</div>
             <div>px</div>
           </div>
         </div>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
-            className={'rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
+            className={'flex justify-center gap-2 rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
               preview
                 ? 'bg-light-bg-primary text-light-primary dark:bg-dark-bg-primary dark:text-dark-primary'
                 : ''
             )}
             onClick={() => setPreview(true)}
           >
-            Preview
+            <Icon
+              icon="material-symbols:mimo-outline-rounded"
+              className="text-light-text-secondary dark:text-dark-text-secondary"
+              width="24"
+              height="24"
+            />
+            <div>Preview</div>
           </button>
           <button
-            className={'rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
+            className={'flex justify-center gap-2 rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
               !preview
                 ? 'bg-light-bg-primary text-light-primary dark:bg-dark-bg-primary dark:text-dark-primary'
                 : ''
             )}
             onClick={() => setPreview(false)}
           >
-            Code
+            <Icon
+              icon="material-symbols:code-rounded"
+              className="text-light-text-secondary dark:text-dark-text-secondary"
+              width="24"
+              height="24"
+            />
+            <div>Code</div>
           </button>
         </div>
         <button
