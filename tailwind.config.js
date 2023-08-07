@@ -7,15 +7,15 @@ module.exports = {
       colors: {
         // dark theme
         'dark-primary': '#b687fb', // primary color
-        'dark-secondary': '#d5bafd', // hover state
+        'dark-secondary': '#d5bafd', // close to ↑
         'dark-bg-primary': '#121212', // main background
         'dark-bg-secondary': '#1e1e1e', // complementary background
         'dark-bg-alternative': '#2b2b2b', // complementary background
         'dark-text-primary': '#fff', // primary text
-        'dark-text-secondary': '#8b8b8b', // lower contrast text
+        'dark-text-secondary': '#858585', // lower contrast text
         // light theme
         'light-primary': '#8129de', // primary color
-        'light-secondary': '#9c57e5', // hover state
+        'light-secondary': '#9c57e5', // close to ↑
         'light-bg-primary': '#fefefe', // main background
         'light-bg-secondary': '#f9f7fd', // complementary background
         'light-bg-alternative': '#ede7f9', // complementary background
