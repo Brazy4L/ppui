@@ -30,6 +30,7 @@ export default function Accordion(props: any) {
         code={props.accordionRegularOne}
         preCode={accordionRegularOne}
         viewportWidth={viewportWidth}
+        element={true}
       />
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
@@ -38,6 +39,7 @@ export default function Accordion(props: any) {
         code={props.accordionRegularTwo}
         preCode={accordionRegularTwo}
         viewportWidth={viewportWidth}
+        element={true}
       />
     </>
   )

@@ -24,6 +24,7 @@ interface Props {
       }
     | any
   viewportWidth: number
+  element: boolean
 }
 
 export default function Preview({
@@ -32,6 +33,7 @@ export default function Preview({
   code,
   preCode,
   viewportWidth,
+  element,
 }: Props) {
   const [preview, setPreview] = useState(true)
   const contextOptions = useContext(Options)
@@ -87,7 +89,13 @@ export default function Preview({
         <div className="mt-4">
           <Rnd
             default={{ x: 0, y: 0, width: '100%', height: 'auto' }}
-            minWidth={viewportWidth > 368 ? 320 : 271}
+            minWidth={
+              element && viewportWidth > 328
+                ? 280
+                : !element && viewportWidth > 368
+                ? 320
+                : 271
+            }
             maxWidth={1280}
             bounds="parent"
             disableDragging={true}
@@ -102,12 +110,10 @@ export default function Preview({
               topLeft: false,
             }}
             style={{ position: 'static' }}
+            resizeHandleStyles={{ right: { right: '-8px', width: '8px' } }}
             resizeHandleComponent={{ right: <Handle /> }}
           >
-            <div
-              ref={ref}
-              className="flex justify-center border-r border-light-bg-alternative dark:border-dark-bg-alternative"
-            >
+            <div ref={ref} className="flex justify-center">
               <Comp />
             </div>
           </Rnd>
@@ -124,6 +130,6 @@ export default function Preview({
 
 function Handle() {
   return (
-    <div className="relative left-[10px] top-[calc(50%-2rem)] h-16 w-2 rounded-lg bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
+    <div className="relative left-[8px] top-[calc(50%-2rem)] h-16 w-2 rounded-lg bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
   )
 }
