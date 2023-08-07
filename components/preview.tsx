@@ -108,8 +108,8 @@ export default function Preview({
           <Rnd
             default={{ x: 0, y: 0, width: '100%', height: 'auto' }}
             minWidth={
-              element && viewportWidth > 328
-                ? 280
+              element && viewportWidth > 336
+                ? 288
                 : !element && viewportWidth > 368
                 ? 320
                 : 271
