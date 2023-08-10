@@ -37,7 +37,7 @@ export function AccordionRegularOne() {
               <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
               <Icon
                 icon="material-symbols:keyboard-arrow-down-rounded"
-                className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+                className="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                 width="28"
                 height="28"
               />
@@ -64,7 +64,7 @@ export function AccordionRegularTwo() {
             <span className="basis-full text-lg font-bold">{item.heading}</span>
             <Icon
               icon="material-symbols:keyboard-arrow-down-rounded"
-              className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+              className="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
               width="28"
               height="28"
             />
