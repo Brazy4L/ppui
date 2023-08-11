@@ -14,8 +14,8 @@ module.exports = {
         'dark-text-primary': '#fff', // primary text
         'dark-text-secondary': '#858585', // lower contrast text
         // light theme
-        'light-primary': '#8129de', // primary color
-        'light-secondary': '#9c57e5', // close to ↑
+        'light-primary': '#7402ed', // primary color
+        'light-secondary': '#5102a7', // close to ↑
         'light-bg-primary': '#fefefe', // main background
         'light-bg-secondary': '#f9f7fd', // complementary background
         'light-bg-alternative': '#ede7f9', // complementary background
