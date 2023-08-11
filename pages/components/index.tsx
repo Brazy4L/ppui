@@ -111,10 +111,7 @@ function OutLink({ href, name }: any) {
 }
 
 export async function getStaticProps() {
-  const loopAndHighlight = (
-    object: { [x: string]: string },
-    highlighter: any
-  ) => {
+  const loopAndHighlight = (object: { [x: string]: string }) => {
     const obj: { [x: string]: string } = {}
 
     for (const key in object) {
@@ -128,6 +125,7 @@ export async function getStaticProps() {
         })
       }
     }
+
     return obj
   }
 
@@ -137,7 +135,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      code: loopAndHighlight(codeBlocks, highlighter),
+      code: loopAndHighlight(codeBlocks),
     },
   }
 }
