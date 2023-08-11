@@ -44,7 +44,7 @@ export default function Preview({
       <div className="flex flex-wrap items-center justify-center gap-4 font-semibold sm:justify-between">
         <div className="flex items-center gap-2">
           <h2>{name}</h2>
-          <div className="flex  gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
+          <div className="flex gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
             <Icon
               icon="material-symbols:width-rounded"
               className="text-light-text-secondary dark:text-dark-text-secondary"
