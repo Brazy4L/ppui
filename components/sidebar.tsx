@@ -28,9 +28,8 @@ export default function Sidebar({
   }
 
   return (
-    <nav className="scrbar top-20 flex flex-col gap-2 overflow-y-auto rounded-lg border-2 border-light-bg-alternative p-4 font-semibold dark:border-dark-bg-alternative lg:sticky lg:h-[calc(100vh-6rem-1px)]">
+    <nav className="scrbar top-20 flex flex-col gap-4 overflow-y-auto rounded-lg border-2 border-light-bg-alternative p-4 font-semibold dark:border-dark-bg-alternative lg:sticky lg:h-[calc(100vh-6rem-1px)]">
       <div className="flex flex-col gap-2">
-        <Heading heading="Pick your poison" />
         <div className="grid grid-cols-2 gap-2">
           {frameworks.map((framework, index) => (
             <Button
@@ -47,31 +46,35 @@ export default function Sidebar({
           ))}
         </div>
       </div>
-      <Heading heading="Get started" />
-      <Link
-        className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
-          router.pathname === '/components'
-            ? 'text-light-primary dark:text-dark-primary'
-            : ''
-        )}
-        href="/components"
-      >
-        Intro
-      </Link>
-      <Heading heading="Elements" />
-      {links.map((link, index) => (
+      <div className="flex flex-col gap-2">
+        <Heading heading="Get started" />
         <Link
           className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
-            router.pathname === link.href
+            router.pathname === '/components'
               ? 'text-light-primary dark:text-dark-primary'
               : ''
           )}
-          key={index}
-          href={link.href}
+          href="/components"
         >
-          {link.name}
+          Intro
         </Link>
-      ))}
+      </div>
+      <div className="flex flex-col gap-2">
+        <Heading heading="Elements" />
+        {links.map((link, index) => (
+          <Link
+            className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
+              router.pathname === link.href
+                ? 'text-light-primary dark:text-dark-primary'
+                : ''
+            )}
+            key={index}
+            href={link.href}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </div>
     </nav>
   )
 }
@@ -79,8 +82,7 @@ export default function Sidebar({
 function Heading({ heading }: { heading: string }) {
   return (
     <div className="flex items-center">
-      <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
-      <h2 className="min-w-max text-light-text-secondary dark:text-dark-text-secondary">
+      <h2 className="min-w-max font-mono text-light-text-secondary dark:text-dark-text-secondary">
         {heading}
       </h2>
       <div className="h-px w-full bg-light-bg-alternative dark:bg-dark-bg-alternative"></div>
