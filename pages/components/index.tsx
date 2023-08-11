@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { getHighlighter } from 'shiki'
 import BaseHead from '@/components/baseHead'
-import Link from 'next/link'
 
 const codeBlocks = {
   tw: `module.exports = {
@@ -80,7 +80,7 @@ export default function Components(props: any) {
 function ListItem({ name, children }: { name?: string; children?: any }) {
   return (
     <li className="flex items-center gap-2">
-      <div className="h-3 w-3 rounded-sm bg-light-primary dark:bg-dark-primary"></div>
+      <div className="h-2 w-2 rounded-full bg-light-primary dark:bg-dark-primary"></div>
       <div>
         {name}
         {children}

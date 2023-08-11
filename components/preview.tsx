@@ -90,7 +90,7 @@ export default function Preview({
           </button>
         </div>
         <button
-          className="group h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+          className="group flex rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
           onClick={() =>
             navigator.clipboard.writeText(preCode[contextOptions.framework])
           }

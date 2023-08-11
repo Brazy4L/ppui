@@ -38,3 +38,8 @@
 .codebar::-webkit-scrollbar-thumb {
   background-color: var(--thumbBGCode);
 }
+
+::selection {
+  color: #000;
+  background: #80ffff;
+}

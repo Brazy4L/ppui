@@ -48,7 +48,7 @@ export default function Header({
             Components
           </Link>
           <button
-            className="h-8 w-8 rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+            className="flex rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
             onClick={() => {
               setTheme(!theme)
               localStorage.setItem('theme', JSON.stringify(!theme))
