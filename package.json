@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "./node_modules/.bin/prettier . --write"
+    "pretty": "./node_modules/.bin/prettier . --write"
   },
   "dependencies": {
     "@types/node": "20.4.5",
