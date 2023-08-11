@@ -53,7 +53,7 @@ export default function Components(props: any) {
         <Code code={props.code.vueAndSvelte} />
       </ul>
       <h2 className="mt-4 text-2xl font-semibold">Credits</h2>
-      <ul>
+      <ul className="flex flex-col gap-4">
         <li>PPUI uses:</li>
         <ListItem>
           <OutLink
