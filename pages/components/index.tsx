@@ -47,10 +47,10 @@ export default function Components(props: any) {
       <ul className="flex flex-col gap-4">
         <ListItem name="React" />
         <Code code={props.code.react} />
+        <ListItem name="Vue or Svelte" />
+        <Code code={props.code.vueAndSvelte} />
         <ListItem name="Solid" />
         <Code code={props.code.solid} />
-        <ListItem name="Vue and Svelte" />
-        <Code code={props.code.vueAndSvelte} />
       </ul>
       <h2 className="mt-4 text-2xl font-semibold">Credits</h2>
       <ul className="flex flex-col gap-4">
