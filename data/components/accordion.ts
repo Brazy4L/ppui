@@ -190,7 +190,7 @@ const items = [
 
 export default function Accordion() {
   return (
-    <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary w-full max-w-xl rounded-lg">
+    <div class="w-full max-w-xl rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
       <For each={items}>
         {(item, index) => (
           <>
@@ -202,12 +202,12 @@ export default function Accordion() {
                 <h3 class="basis-full text-lg font-bold">{item.heading}</h3>
                 <Icon
                   icon="material-symbols:keyboard-arrow-down-rounded"
-                  class="text-light-text-secondary dark:text-dark-text-secondary h-fit group-open:rotate-180"
+                  class="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                   width="28"
                   height="28"
                 />
               </summary>
-              <p class="text-light-text-secondary dark:text-dark-text-secondary px-4 pb-4">
+              <p class="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
                 {item.content}
               </p>
             </details>
@@ -216,7 +216,7 @@ export default function Accordion() {
       </For>
     </div>
   )
-}
+}  
 `,
 }
 
@@ -404,17 +404,17 @@ export default function Accordion() {
     <div class="flex w-full max-w-xl flex-col gap-4">
       <For each={items}>
         {(item) => (
-          <details class="bg-light-bg-secondary dark:bg-dark-bg-secondary group rounded-lg">
+          <details class="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
             <summary class="flex cursor-pointer p-4">
               <span class="basis-full text-lg font-bold">{item.heading}</span>
               <Icon
                 icon="material-symbols:keyboard-arrow-down-rounded"
-                class="text-light-text-secondary dark:text-dark-text-secondary h-fit group-open:rotate-180"
+                class="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                 width="28"
                 height="28"
               />
             </summary>
-            <p class="text-light-text-secondary dark:text-dark-text-secondary px-4 pb-4">
+            <p class="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
               {item.content}
             </p>
           </details>
@@ -422,6 +422,6 @@ export default function Accordion() {
       </For>
     </div>
   )
-}
+}  
 `,
 }
