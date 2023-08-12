@@ -55,15 +55,15 @@ export default function Components(props: any) {
         <ListItem name="Solid" />
         <Code code={props.code.solid} />
       </ul>
-      <h2 className="mt-4 text-xl font-semibold underline">Details</h2>
       <div>
-        It is advised to apply these classes to you{' '}
+        It is advised to apply these classes to your{' '}
         <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
           &lt;body /&gt;
         </div>
         :
       </div>
       <Code code={props.code.body} />
+      <h2 className="mt-4 text-xl font-semibold underline">Details</h2>
       <div>
         Every component is designed for
         <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
@@ -96,10 +96,12 @@ export default function Components(props: any) {
             href="https://github.com/gilbarbara/logos"
             name="SVG Logos"
           />{' '}
-          by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />
+          by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
+          (only framework icons)
         </ListItem>
         <ListItem>
-          and <OutLink href="https://iconify.design" name="Iconify" />
+          and <OutLink href="https://iconify.design" name="Iconify" /> to manage
+          them with ease.
         </ListItem>
       </ul>
     </div>
@@ -140,7 +142,14 @@ function OutLink({ href, name }: any) {
 }
 
 export async function getStaticProps() {
-  const loopAndHighlight = (object: { [x: string]: string }) => {
+  const highlighter = await getHighlighter({
+    theme: 'dark-plus',
+  })
+
+  const loopAndHighlight = (
+    object: { [x: string]: string },
+    highlighter: any
+  ) => {
     const obj: { [x: string]: string } = {}
 
     for (const key in object) {
@@ -162,13 +171,9 @@ export async function getStaticProps() {
     return obj
   }
 
-  const highlighter = await getHighlighter({
-    theme: 'dark-plus',
-  })
-
   return {
     props: {
-      code: loopAndHighlight(codeBlocks),
+      code: loopAndHighlight(codeBlocks, highlighter),
     },
   }
 }
