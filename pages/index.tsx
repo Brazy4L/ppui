@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className="group text-[max(10vmin,2.25rem)] font-black text-light-primary dark:text-dark-primary">
             P
             <div
-              className={'inline-grid transition-[grid-template-columns] duration-[270ms] ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
+              className={'inline-grid transition-[grid-template-columns] duration-200 ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
                 animate ? '[grid-template-columns:1fr]' : ''
               )}
             >
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
             P
             <div
-              className={'inline-grid transition-[grid-template-columns] duration-[270ms] ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
+              className={'inline-grid transition-[grid-template-columns] duration-200 ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
                 animate ? '[grid-template-columns:1fr]' : ''
               )}
             >
@@ -34,8 +34,8 @@ export default function Home() {
             UI
           </h1>
           <p className="font-semibold">
-            A collection of tailwind-styled accessible UI components for every
-            JavaScript framework{' '}
+            A collection of tailwind-styled UI components for every JavaScript
+            framework{' '}
             <span className="text-light-text-secondary dark:text-dark-text-secondary">
               (not really)
             </span>
@@ -58,7 +58,7 @@ export default function Home() {
           >
             <Icon
               icon="material-symbols:refresh-rounded"
-              className="text-light-text-secondary transition-transform duration-[270ms] dark:text-dark-text-secondary"
+              className="text-light-text-secondary transition-transform duration-200 dark:text-dark-text-secondary"
               style={{ transform: `rotate(${rotate}turn)` }}
               width="24"
               height="24"
