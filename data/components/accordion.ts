@@ -1,3 +1,10 @@
+// export const _ = {
+//   react: ``,
+//   vue: ``,
+//   svelte: ``,
+//   solid: ``,
+// }
+
 export const accordionRegularOne = {
   react: `import { Icon } from '@iconify-icon/react'
 import { Fragment } from 'react'
@@ -424,4 +431,18 @@ export default function Accordion() {
   )
 }  
 `,
+}
+
+export const accordionAnimated = {
+  react: ``,
+  vue: ``,
+  svelte: ``,
+  solid: ``,
+}
+
+export const accordionAnimatedRadio = {
+  react: ``,
+  vue: ``,
+  svelte: ``,
+  solid: ``,
 }

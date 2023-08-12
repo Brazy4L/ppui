@@ -7,6 +7,10 @@ import { AccordionRegularOne } from '@/components/components/accordion'
 import { accordionRegularOne } from '@/data/components/accordion'
 import { AccordionRegularTwo } from '@/components/components/accordion'
 import { accordionRegularTwo } from '@/data/components/accordion'
+import { AccordionAnimated } from '@/components/components/accordion'
+import { accordionAnimated } from '@/data/components/accordion'
+import { AccordionAnimatedRadio } from '@/components/components/accordion'
+import { accordionAnimatedRadio } from '@/data/components/accordion'
 
 export default function Accordion(props: any) {
   const [viewportWidth, setViewportWidth] = useState(0)
@@ -25,7 +29,7 @@ export default function Accordion(props: any) {
     <>
       <BaseHead title="Accordion - Components" />
       <Preview
-        name="Regular One"
+        name="Regular one"
         Comp={() => <AccordionRegularOne />}
         code={props.accordionRegularOne}
         preCode={accordionRegularOne}
@@ -34,10 +38,28 @@ export default function Accordion(props: any) {
       />
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
-        name="Regular Two"
+        name="Regular two"
         Comp={() => <AccordionRegularTwo />}
         code={props.accordionRegularTwo}
         preCode={accordionRegularTwo}
+        viewportWidth={viewportWidth}
+        element={true}
+      />
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+      <Preview
+        name="Animated"
+        Comp={() => <AccordionAnimated />}
+        code={props.accordionAnimated}
+        preCode={accordionAnimated}
+        viewportWidth={viewportWidth}
+        element={true}
+      />
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+      <Preview
+        name="Animated radio-like"
+        Comp={() => <AccordionAnimatedRadio />}
+        code={props.accordionAnimatedRadio}
+        preCode={accordionAnimatedRadio}
         viewportWidth={viewportWidth}
         element={true}
       />
@@ -54,6 +76,11 @@ export async function getStaticProps() {
     props: {
       accordionRegularOne: loopAndHighlight(accordionRegularOne, highlighter),
       accordionRegularTwo: loopAndHighlight(accordionRegularTwo, highlighter),
+      accordionAnimated: loopAndHighlight(accordionAnimated, highlighter),
+      accordionAnimatedRadio: loopAndHighlight(
+        accordionAnimatedRadio,
+        highlighter
+      ),
     },
   }
 }

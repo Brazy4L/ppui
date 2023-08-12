@@ -1,5 +1,5 @@
 import { Icon } from '@iconify-icon/react'
-import { Fragment } from 'react'
+import { Dispatch, Fragment, SetStateAction, useState } from 'react'
 
 const items = [
   {
@@ -74,6 +74,107 @@ export function AccordionRegularTwo() {
           </p>
         </details>
       ))}
+    </div>
+  )
+}
+
+export function AccordionAnimated() {
+  return (
+    <div className="flex w-full max-w-xl flex-col gap-4">
+      {items.map((item, index) => (
+        <AccordionAnimatedItem key={index} item={item} />
+      ))}
+    </div>
+  )
+}
+
+function AccordionAnimatedItem({
+  item,
+}: {
+  item: { heading: string; content: string }
+}) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <div className="flex cursor-pointer p-4" onClick={() => setOpen(!open)}>
+        <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
+        <Icon
+          icon="material-symbols:keyboard-arrow-down-rounded"
+          className={`${
+            open ? 'rotate-180' : ''
+          } h-fit text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
+          width="28"
+          height="28"
+        />
+      </div>
+      <div
+        className={`${
+          open ? '[grid-template-rows:1fr]' : '[grid-template-rows:0fr]'
+        } grid text-light-text-secondary transition-[grid-template-rows] dark:text-dark-text-secondary`}
+      >
+        <div className="overflow-hidden">
+          <p className="mx-4 mb-4">{item.content}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function AccordionAnimatedRadio() {
+  const [activeId, setActiveId] = useState(-1)
+
+  return (
+    <div className="flex w-full max-w-xl flex-col gap-4">
+      {items.map((item, index) => (
+        <AccordionAnimatedRadioItem
+          key={index}
+          item={item}
+          index={index}
+          open={activeId === index}
+          setActiveId={setActiveId}
+        />
+      ))}
+    </div>
+  )
+}
+
+function AccordionAnimatedRadioItem({
+  item,
+  index,
+  open,
+  setActiveId,
+}: {
+  item: { heading: string; content: string }
+  index: number
+  open: boolean
+  setActiveId: Dispatch<SetStateAction<number>>
+}) {
+  return (
+    <div className="rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
+      <div
+        className="flex cursor-pointer p-4"
+        onClick={() => (open ? setActiveId(-1) : setActiveId(index))}
+      >
+        <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
+        <Icon
+          icon="material-symbols:keyboard-arrow-down-rounded"
+          className={`${
+            open ? 'rotate-180' : ''
+          } h-fit text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
+          width="28"
+          height="28"
+        />
+      </div>
+      <div
+        className={`${
+          open ? '[grid-template-rows:1fr]' : '[grid-template-rows:0fr]'
+        } grid text-light-text-secondary transition-[grid-template-rows] dark:text-dark-text-secondary`}
+      >
+        <div className="overflow-hidden">
+          <p className="mx-4 mb-4">{item.content}</p>
+        </div>
+      </div>
     </div>
   )
 }
