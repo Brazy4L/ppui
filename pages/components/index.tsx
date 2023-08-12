@@ -4,8 +4,7 @@ import BaseHead from '@/components/baseHead'
 
 const codeBlocks = {
   tw: `module.exports = {
-  content: [], // paths to your files
-  // darkMode: 'class', // uncomment to toggle theme manually
+  content: [],
   theme: {
     extend: {
       colors: {
@@ -34,13 +33,17 @@ const codeBlocks = {
   react: 'npm install --save-dev @iconify-icon/react',
   solid: 'npm install --save-dev @iconify-icon/solid',
   vueAndSvelte: 'npm install --save-dev iconify-icon',
+  body: `<body className="bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">
+  <!-- DOM -->
+</body>
+`,
 }
 
 export default function Components(props: any) {
   return (
     <div className="mx-auto mt-4 flex w-full max-w-2xl flex-col gap-4 lg:mt-0">
       <BaseHead title="Components" />
-      <h2 className="text-2xl font-semibold">Usage</h2>
+      <h2 className="text-xl font-semibold underline">Usage</h2>
       <p>Add preset of colors to your tailwind config:</p>
       <Code code={props.code.tw} />
       <p>Then install Iconify for your framework:</p>
@@ -52,7 +55,33 @@ export default function Components(props: any) {
         <ListItem name="Solid" />
         <Code code={props.code.solid} />
       </ul>
-      <h2 className="mt-4 text-2xl font-semibold">Credits</h2>
+      <h2 className="mt-4 text-xl font-semibold underline">Details</h2>
+      <div>
+        It is advised to apply these classes to you{' '}
+        <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
+          &lt;body /&gt;
+        </div>
+        :
+      </div>
+      <Code code={props.code.body} />
+      <div>
+        Every component is designed for
+        <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
+          320 px
+        </div>
+        minimum width, has both dark and light mode. By default tailwind applies
+        theme that is being used in OS/Browser. You can opt out by changing your{' '}
+        <OutLink href="https://tailwindcss.com/docs/dark-mode" name="config" />.
+      </div>
+      <p>
+        You can{' '}
+        <OutLink
+          href="https://iconify.design/docs/api/hosting.html"
+          name="self-host"
+        />{' '}
+        icons, extract components, change colors if you want to.
+      </p>
+      <h2 className="mt-4 text-xl font-semibold underline">Credits</h2>
       <ul className="flex flex-col gap-4">
         <li>PPUI uses:</li>
         <ListItem>
@@ -118,6 +147,10 @@ export async function getStaticProps() {
       if (key === 'tw') {
         obj[key] = highlighter.codeToHtml(object[key], {
           lang: 'js',
+        })
+      } else if (key === 'body') {
+        obj[key] = highlighter.codeToHtml(object[key], {
+          lang: 'html',
         })
       } else {
         obj[key] = highlighter.codeToHtml(object[key], {
