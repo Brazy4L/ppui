@@ -5,9 +5,19 @@ export const loopAndHighlight = (
   const obj: { [x: string]: string } = {}
 
   for (const key in object) {
-    obj[key] = highlighter.codeToHtml(object[key], {
-      lang: 'js',
-    })
+    if (key === 'vue') {
+      obj[key] = highlighter.codeToHtml(object[key], {
+        lang: 'vue',
+      })
+    } else if (key === 'svelte') {
+      obj[key] = highlighter.codeToHtml(object[key], {
+        lang: 'svelte',
+      })
+    } else {
+      obj[key] = highlighter.codeToHtml(object[key], {
+        lang: 'jsx',
+      })
+    }
   }
   return obj
 }
