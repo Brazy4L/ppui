@@ -60,7 +60,7 @@ export function AccordionRegularTwo() {
           className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
         >
           <summary className="flex cursor-pointer p-4">
-            <span className="basis-full text-lg font-bold">{item.heading}</span>
+            <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
             <MaterialSymbolsKeyboardArrowDownRounded
               className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
               width="28"
@@ -95,7 +95,16 @@ function AccordionAnimatedItem({
 
   return (
     <div className="rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-      <div className="flex cursor-pointer p-4" onClick={() => setOpen(!open)}>
+      <div
+        className="flex cursor-pointer p-4"
+        onClick={() => setOpen(!open)}
+        onKeyDown={(e) =>
+          (e.code === 'Enter' || e.code === 'Space') && setOpen(!open)
+        }
+        tabIndex={0}
+        role="button"
+        aria-expanded={open}
+      >
         <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
           className={`${
@@ -152,6 +161,13 @@ function AccordionAnimatedRadioItem({
       <div
         className="flex cursor-pointer p-4"
         onClick={() => (open ? setActiveId(-1) : setActiveId(index))}
+        onKeyDown={(e) =>
+          (e.code === 'Enter' || e.code === 'Space') &&
+          (open ? setActiveId(-1) : setActiveId(index))
+        }
+        tabIndex={0}
+        role="button"
+        aria-expanded={open}
       >
         <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
