@@ -1,15 +1,30 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Icon } from '@iconify-icon/react'
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react'
+import { Dispatch, ElementType, MouseEventHandler, SetStateAction } from 'react'
+import LogosReact from '~icons/logos/react'
+import LogosVue from '~icons/logos/vue'
+import LogosSvelteIcon from '~icons/logos/svelte-icon'
+import LogosSolidjsIcon from '~icons/logos/solidjs-icon'
 
 const links = [{ name: 'Accordion', href: '/components/accordion' }]
 
 const frameworks = [
-  { name: 'React', icon: 'logos:react', shorthand: 'react' },
-  { name: 'Vue', icon: 'logos:vue', shorthand: 'vue' },
-  { name: 'Svelte', icon: 'logos:svelte-icon', shorthand: 'svelte' },
-  { name: 'Solid', icon: 'logos:solidjs-icon', shorthand: 'solid' },
+  {
+    name: 'React',
+    icon: <LogosReact width="24" height="24" />,
+    shorthand: 'react',
+  },
+  { name: 'Vue', icon: <LogosVue width="24" height="24" />, shorthand: 'vue' },
+  {
+    name: 'Svelte',
+    icon: <LogosSvelteIcon width="24" height="24" />,
+    shorthand: 'svelte',
+  },
+  {
+    name: 'Solid',
+    icon: <LogosSolidjsIcon width="24" height="24" />,
+    shorthand: 'solid',
+  },
 ]
 
 export default function Sidebar({
@@ -39,7 +54,7 @@ export default function Sidebar({
                   ? 'text-light-primary ring-2 ring-light-primary dark:text-dark-primary dark:ring-dark-primary'
                   : ''
               }
-              icon={framework.icon}
+              Icon={() => framework.icon}
               name={framework.name}
               onClick={() => optionsHandler('framework', framework.shorthand)}
             />
@@ -93,12 +108,12 @@ function Heading({ heading }: { heading: string }) {
 function Button({
   className,
   onClick,
-  icon,
+  Icon,
   name,
 }: {
   className: string
   onClick: MouseEventHandler<HTMLButtonElement>
-  icon: string
+  Icon: ElementType
   name: string
 }) {
   return (
@@ -108,7 +123,7 @@ function Button({
       )}
       onClick={onClick}
     >
-      <Icon icon={icon} width="24" height="24" />
+      <Icon />
       <p>{name}</p>
     </button>
   )

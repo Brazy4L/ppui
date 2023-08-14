@@ -31,7 +31,10 @@ export default function Accordion(props: any) {
 
   return (
     <>
-      <BaseHead title="Accordion - Components" />
+      <BaseHead
+        title="Accordion - Components"
+        description="Accordion - PPUI component"
+      />
       <Preview
         name="Regular one"
         Comp={() => <AccordionRegularOne />}

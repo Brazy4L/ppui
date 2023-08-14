@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Icon } from '@iconify-icon/react'
 import { Dispatch, SetStateAction } from 'react'
+import MaterialSymbolsLightModeOutline from '~icons/material-symbols/light-mode-outline'
+import MaterialSymbolsDarkModeOutlineRounded from '~icons/material-symbols/dark-mode-outline-rounded'
 
 export default function Header({
   theme,
@@ -74,17 +75,16 @@ export default function Header({
               document.querySelector('meta[name="color-scheme"]').content =
                 theme ? 'light' : 'dark'
             }}
+            title="Change theme"
           >
             {theme ? (
-              <Icon
-                icon="material-symbols:light-mode-outline"
+              <MaterialSymbolsLightModeOutline
                 className="text-dark-text-secondary"
                 width="24"
                 height="24"
               />
             ) : (
-              <Icon
-                icon="material-symbols:dark-mode-outline-rounded"
+              <MaterialSymbolsDarkModeOutlineRounded
                 className="text-light-text-secondary"
                 width="24"
                 height="24"

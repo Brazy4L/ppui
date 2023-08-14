@@ -43,7 +43,7 @@ const codeBlocks = {
 export default function Components(props: any) {
   return (
     <div className="mx-auto mt-4 flex w-full max-w-2xl flex-col gap-4 lg:mt-0">
-      <BaseHead title="Components" />
+      <BaseHead title="Components" description="Get started with PPUI" />
       <h2 className="text-xl font-semibold underline">Usage</h2>
       <p>Add preset of colors to your tailwind config:</p>
       <Code code={props.code.tw} />

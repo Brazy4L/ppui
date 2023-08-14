@@ -1,8 +1,11 @@
 import { useState, useContext, ElementType, useEffect } from 'react'
-import { Icon } from '@iconify-icon/react'
 import { Options } from '@/components/componentsLayout'
 import { Rnd } from 'react-rnd'
 import useResizeObserver from 'use-resize-observer'
+import MaterialSymbolsWidthRounded from '~icons/material-symbols/width-rounded'
+import MaterialSymbolsMimoOutlineRounded from '~icons/material-symbols/mimo-outline-rounded'
+import MaterialSymbolsCodeRounded from '~icons/material-symbols/code-rounded'
+import MaterialSymbolsContentCopyOutlineRounded from '~icons/material-symbols/content-copy-outline-rounded'
 
 interface Props {
   name: string
@@ -46,8 +49,7 @@ export default function Preview({
         <div className="flex items-center gap-2">
           <h2>{name}</h2>
           <div className="flex gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
-            <Icon
-              icon="material-symbols:width-rounded"
+            <MaterialSymbolsWidthRounded
               className="text-light-text-secondary dark:text-dark-text-secondary"
               width="24"
               height="24"
@@ -65,8 +67,7 @@ export default function Preview({
             )}
             onClick={() => setPreview(true)}
           >
-            <Icon
-              icon="material-symbols:mimo-outline-rounded"
+            <MaterialSymbolsMimoOutlineRounded
               className="text-light-text-secondary dark:text-dark-text-secondary"
               width="24"
               height="24"
@@ -81,8 +82,7 @@ export default function Preview({
             )}
             onClick={() => setPreview(false)}
           >
-            <Icon
-              icon="material-symbols:code-rounded"
+            <MaterialSymbolsCodeRounded
               className="text-light-text-secondary dark:text-dark-text-secondary"
               width="24"
               height="24"
@@ -97,9 +97,9 @@ export default function Preview({
               code[contextOptions.framework][activeId].code
             )
           }
+          title="Copy"
         >
-          <Icon
-            icon="material-symbols:content-copy-outline-rounded"
+          <MaterialSymbolsContentCopyOutlineRounded
             className="cursor-pointer text-light-text-secondary transition-colors group-focus:text-light-primary dark:text-dark-text-secondary dark:group-focus:text-dark-primary"
             width="24"
             height="24"

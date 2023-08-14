@@ -1,5 +1,5 @@
-import { Icon } from '@iconify-icon/react'
 import { Dispatch, Fragment, SetStateAction, useState } from 'react'
+import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded'
 
 const items = [
   {
@@ -35,9 +35,8 @@ export function AccordionRegularOne() {
           <details className="group">
             <summary className="flex cursor-pointer p-4">
               <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
-              <Icon
-                icon="material-symbols:keyboard-arrow-down-rounded"
-                className="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+              <MaterialSymbolsKeyboardArrowDownRounded
+                className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                 width="28"
                 height="28"
               />
@@ -62,9 +61,8 @@ export function AccordionRegularTwo() {
         >
           <summary className="flex cursor-pointer p-4">
             <span className="basis-full text-lg font-bold">{item.heading}</span>
-            <Icon
-              icon="material-symbols:keyboard-arrow-down-rounded"
-              className="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+            <MaterialSymbolsKeyboardArrowDownRounded
+              className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
               width="28"
               height="28"
             />
@@ -99,11 +97,10 @@ function AccordionAnimatedItem({
     <div className="rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
       <div className="flex cursor-pointer p-4" onClick={() => setOpen(!open)}>
         <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
-        <Icon
-          icon="material-symbols:keyboard-arrow-down-rounded"
+        <MaterialSymbolsKeyboardArrowDownRounded
           className={`${
             open ? 'rotate-180' : ''
-          } h-fit text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
+          } text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
           width="28"
           height="28"
         />
@@ -157,11 +154,10 @@ function AccordionAnimatedRadioItem({
         onClick={() => (open ? setActiveId(-1) : setActiveId(index))}
       >
         <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
-        <Icon
-          icon="material-symbols:keyboard-arrow-down-rounded"
+        <MaterialSymbolsKeyboardArrowDownRounded
           className={`${
             open ? 'rotate-180' : ''
-          } h-fit text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
+          } text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
           width="28"
           height="28"
         />

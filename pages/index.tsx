@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import { Icon } from '@iconify-icon/react'
+import MaterialSymbolsRefreshRounded from '~icons/material-symbols/refresh-rounded'
 
 export default function Home() {
   const [animate, setAnimate] = useState(false)
@@ -11,6 +11,10 @@ export default function Home() {
     <>
       <Head>
         <title>PPUI - UI Components</title>
+        <meta
+          name="description"
+          content="A collection of tailwind-styled UI components for React, Vue, Svelte and Solid"
+        />
       </Head>
       <main className="mx-auto flex min-h-[calc(100vh-64px)] max-w-4xl flex-col justify-center gap-4 p-4">
         <div className="flex flex-col items-center">
@@ -55,9 +59,9 @@ export default function Home() {
               setAnimate(!animate)
               setRotate(rotate + 1)
             }}
+            aria-label="Repeat animation"
           >
-            <Icon
-              icon="material-symbols:refresh-rounded"
+            <MaterialSymbolsRefreshRounded
               className="text-light-text-secondary transition-transform duration-200 dark:text-dark-text-secondary"
               style={{ transform: `rotate(${rotate}turn)` }}
               width="24"
