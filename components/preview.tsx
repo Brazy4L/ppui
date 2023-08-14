@@ -1,4 +1,4 @@
-import { useState, useContext, ElementType } from 'react'
+import { useState, useContext, ElementType, useEffect } from 'react'
 import { Icon } from '@iconify-icon/react'
 import { Options } from '@/components/componentsLayout'
 import { Rnd } from 'react-rnd'
@@ -7,37 +7,38 @@ import useResizeObserver from 'use-resize-observer'
 interface Props {
   name: string
   Comp: ElementType
-  code:
-    | {
-        react: HTMLElement
-        vue: HTMLElement
-        svelte: HTMLElement
-        solid: HTMLElement
-      }
-    | any
-  preCode:
-    | {
-        react: string
-        vue: string
-        svelte: string
-        solid: string
-      }
-    | any
+  code: {
+    [x: string]: Item[]
+    react: Item[]
+    vue: Item[]
+    svelte: Item[]
+    solid: Item[]
+  }
   viewportWidth: number
   element: boolean
+}
+
+interface Item {
+  tab: string
+  code: string
+  highlightedCode: string
 }
 
 export default function Preview({
   name,
   Comp,
   code,
-  preCode,
   viewportWidth,
   element,
 }: Props) {
-  const [preview, setPreview] = useState(true)
   const contextOptions = useContext(Options)
+  const [preview, setPreview] = useState(true)
+  const [activeId, setActiveId] = useState(0)
   const { ref, width } = useResizeObserver({ box: 'border-box' })
+
+  useEffect(() => {
+    setActiveId(0)
+  }, [contextOptions.framework])
 
   return (
     <div className="mb-4 mt-4 lg:mt-0">
@@ -92,7 +93,9 @@ export default function Preview({
         <button
           className="group flex rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
           onClick={() =>
-            navigator.clipboard.writeText(preCode[contextOptions.framework])
+            navigator.clipboard.writeText(
+              code[contextOptions.framework][activeId].code
+            )
           }
         >
           <Icon
@@ -137,10 +140,33 @@ export default function Preview({
           </Rnd>
         </div>
       ) : (
-        <div
-          className="scrbar codebar mt-4 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
-          dangerouslySetInnerHTML={{ __html: code[contextOptions.framework] }}
-        ></div>
+        <>
+          {code[contextOptions.framework].length > 1 && (
+            <nav className="scrbar mt-4 flex gap-4 overflow-y-auto">
+              {code[contextOptions.framework].map((item, index) => (
+                <button
+                  key={index}
+                  className={`${
+                    activeId === index
+                      ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary'
+                      : 'text-light-text-secondary dark:text-dark-text-secondary'
+                  } rounded-lg p-2 font-mono transition-colors hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary`}
+                  onClick={() => setActiveId(index)}
+                >
+                  {item.tab}
+                </button>
+              ))}
+            </nav>
+          )}
+          <div
+            className="scrbar codebar mt-4 overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
+            dangerouslySetInnerHTML={{
+              __html: code[contextOptions.framework][activeId]?.highlightedCode
+                ? code[contextOptions.framework][activeId].highlightedCode
+                : code[contextOptions.framework][0].highlightedCode,
+            }}
+          ></div>
+        </>
       )}
     </div>
   )

@@ -1,12 +1,8 @@
-// export const _ = {
-//   react: ``,
-//   vue: ``,
-//   svelte: ``,
-//   solid: ``,
-// }
-
 export const accordionRegularOne = {
-  react: `import { Icon } from '@iconify-icon/react'
+  react: [
+    {
+      tab: 'Accordion.tsx',
+      code: `import { Icon } from '@iconify-icon/react'
 import { Fragment } from 'react'
 
 const items = [
@@ -60,7 +56,12 @@ export default function Accordion() {
   )
 }
 `,
-  vue: `<script setup lang="ts">
+    },
+  ],
+  vue: [
+    {
+      tab: 'Accordion.vue',
+      code: `<script setup lang="ts">
 import 'iconify-icon'
 
 const items = [
@@ -116,7 +117,12 @@ const items = [
   </div>
 </template>
 `,
-  svelte: `<script lang="ts">
+    },
+  ],
+  svelte: [
+    {
+      tab: 'Accordion.svelte',
+      code: `<script lang="ts">
   import 'iconify-icon'
 
   const items = [
@@ -169,7 +175,12 @@ const items = [
   {/each}
 </div>
 `,
-  solid: `import { For, Show } from 'solid-js'
+    },
+  ],
+  solid: [
+    {
+      tab: 'Accordion.tsx',
+      code: `import { For, Show } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 
 const items = [
@@ -225,10 +236,15 @@ export default function Accordion() {
   )
 }  
 `,
+    },
+  ],
 }
 
 export const accordionRegularTwo = {
-  react: `import { Icon } from '@iconify-icon/react'
+  react: [
+    {
+      tab: 'Accordion.tsx',
+      code: `import { Icon } from '@iconify-icon/react'
 
 const items = [
   {
@@ -279,7 +295,12 @@ export default function Accordion() {
   )
 }
 `,
-  vue: `<script setup lang="ts">
+    },
+  ],
+  vue: [
+    {
+      tab: 'Accordion.vue',
+      code: `<script setup lang="ts">
 import 'iconify-icon'
 
 const items = [
@@ -330,7 +351,12 @@ const items = [
   </div>
 </template>  
 `,
-  svelte: `<script lang="ts">
+    },
+  ],
+  svelte: [
+    {
+      tab: 'Accordion.svelte',
+      code: `<script lang="ts">
   import 'iconify-icon'
 
   const items = [
@@ -380,7 +406,12 @@ const items = [
   {/each}
 </div>
 `,
-  solid: `import { For } from 'solid-js'
+    },
+  ],
+  solid: [
+    {
+      tab: 'Accordion.tsx',
+      code: `import { For } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 
 const items = [
@@ -431,18 +462,20 @@ export default function Accordion() {
   )
 }  
 `,
+    },
+  ],
 }
 
 export const accordionAnimated = {
-  react: ``,
-  vue: ``,
-  svelte: ``,
-  solid: ``,
+  react: [{ tab: '', code: `` }],
+  vue: [{ tab: '', code: `` }],
+  svelte: [{ tab: '', code: `` }],
+  solid: [{ tab: '', code: `` }],
 }
 
 export const accordionAnimatedRadio = {
-  react: ``,
-  vue: ``,
-  svelte: ``,
-  solid: ``,
+  react: [{ tab: '', code: `` }],
+  vue: [{ tab: '', code: `` }],
+  svelte: [{ tab: '', code: `` }],
+  solid: [{ tab: '', code: `` }],
 }
