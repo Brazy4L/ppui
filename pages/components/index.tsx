@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { getHighlighter } from 'shiki'
+import { getHighlighter, Highlighter } from 'shiki'
 import BaseHead from '@/components/baseHead'
+import { ReactNode } from 'react'
 
 const codeBlocks = {
   tw: `module.exports = {
@@ -108,7 +109,7 @@ export default function Components(props: any) {
   )
 }
 
-function ListItem({ name, children }: { name?: string; children?: any }) {
+function ListItem({ name, children }: { name?: string; children?: ReactNode }) {
   return (
     <li className="flex items-center gap-2">
       <div className="h-2 w-2 rounded-full bg-light-primary dark:bg-dark-primary"></div>
@@ -120,7 +121,7 @@ function ListItem({ name, children }: { name?: string; children?: any }) {
   )
 }
 
-function Code({ code }: any) {
+function Code({ code }: { code: string }) {
   return (
     <div
       className="scrbar codebar overflow-x-auto rounded-lg border-2 border-dark-bg-alternative bg-dark-bg-secondary p-4"
@@ -129,7 +130,7 @@ function Code({ code }: any) {
   )
 }
 
-function OutLink({ href, name }: any) {
+function OutLink({ href, name }: { href: string; name: string }) {
   return (
     <Link
       className="text-light-primary transition-colors hover:text-light-secondary dark:text-dark-primary dark:hover:text-dark-secondary"
@@ -148,7 +149,7 @@ export async function getStaticProps() {
 
   const loopAndHighlight = (
     object: { [x: string]: string },
-    highlighter: any
+    highlighter: Highlighter
   ) => {
     const obj: { [x: string]: string } = {}
 
