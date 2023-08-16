@@ -5,7 +5,7 @@ import AccordionRegularTwo from './components/accordion/AccordionRegularTwo.vue'
 
 <template>
   <div>
-    <!-- <AccordionRegularOne /> -->
-    <!-- <AccordionRegularTwo /> -->
+    <AccordionRegularOne />
+    <AccordionRegularTwo />
   </div>
 </template>

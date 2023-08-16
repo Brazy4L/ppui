@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded'
+
 const items = [
   {
     heading: 'Item 1',
@@ -35,9 +37,8 @@ const items = [
       <details class="group">
         <summary class="flex cursor-pointer p-4">
           <h3 class="basis-full text-lg font-bold">{{ item.heading }}</h3>
-          <iconify-icon
-            icon="material-symbols:keyboard-arrow-down-rounded"
-            class="h-fit text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+          <MaterialSymbolsKeyboardArrowDownRounded
+            class="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
             width="28"
             height="28"
           />

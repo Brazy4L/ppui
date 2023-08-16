@@ -20,7 +20,7 @@ export const accordionRegularOne = {
   solid: [
     {
       tab: 'Accordion.tsx',
-      path: 'components/components/accordion/AccordionRegularOne.tsx',
+      path: 'playground/solid/src/components/accordion/AccordionRegularOne.tsx',
     },
   ],
 }
@@ -47,7 +47,7 @@ export const accordionRegularTwo = {
   solid: [
     {
       tab: 'Accordion.tsx',
-      path: 'components/components/accordion/AccordionRegularTwo.tsx',
+      path: 'playground/solid/src/components/accordion/AccordionRegularTwo.tsx',
     },
   ],
 }
@@ -74,7 +74,7 @@ export const accordionAnimated = {
   solid: [
     {
       tab: 'Accordion.tsx',
-      path: 'components/components/accordion/AccordionAnimated.tsx',
+      path: 'playground/solid/src/components/accordion/AccordionAnimated.tsx',
     },
   ],
 }
@@ -101,7 +101,7 @@ export const accordionAnimatedRadio = {
   solid: [
     {
       tab: 'Accordion.tsx',
-      path: 'components/components/accordion/AccordionAnimatedRadio.tsx',
+      path: 'playground/solid/src/components/accordion/AccordionAnimatedRadio.tsx',
     },
   ],
 }

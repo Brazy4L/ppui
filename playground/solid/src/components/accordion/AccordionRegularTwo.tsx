@@ -1,4 +1,4 @@
-<script setup lang="ts">
+import { For } from 'solid-js'
 import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded'
 
 const items = [
@@ -23,27 +23,27 @@ const items = [
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id rem dolorem quos? Delectus aperiam nihil esse. Quasi reiciendis natus totam aut eaque praesentium quaerat itaque sed, quas accusantium? Earum alias et a accusantium culpa perferendis veniam possimus minima nihil dolorum quidem maiores porro exercitationem nobis reiciendis saepe, dolore ipsa quod.',
   },
 ]
-</script>
 
-<template>
-  <div class="flex w-full max-w-xl flex-col gap-4">
-    <details
-      class="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
-      v-for="item in items"
-    >
-      <summary class="flex cursor-pointer p-4">
-        <span class="basis-full text-lg font-bold">{{ item.heading }}</span>
-        <MaterialSymbolsKeyboardArrowDownRounded
-          class="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
-          width="28"
-          height="28"
-        />
-      </summary>
-      <p
-        class="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary"
-      >
-        {{ item.content }}
-      </p>
-    </details>
-  </div>
-</template>
+export default function Accordion() {
+  return (
+    <div class="flex w-full max-w-xl flex-col gap-4">
+      <For each={items}>
+        {(item) => (
+          <details class="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
+            <summary class="flex cursor-pointer p-4">
+              <span class="basis-full text-lg font-bold">{item.heading}</span>
+              <MaterialSymbolsKeyboardArrowDownRounded
+                class="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+                width="28"
+                height="28"
+              />
+            </summary>
+            <p class="px-4 pb-4 text-light-text-secondary dark:text-dark-text-secondary">
+              {item.content}
+            </p>
+          </details>
+        )}
+      </For>
+    </div>
+  )
+}
