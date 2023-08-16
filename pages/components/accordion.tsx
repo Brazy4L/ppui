@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react'
+import useViewportWidth from '@/utils/useViewportWidth'
 import { getHighlighter } from 'shiki'
 import { loopAndHighlight } from '@/utils/utils'
 import BaseHead from '@/components/baseHead'
 import Preview from '@/components/preview'
-import {
-  AccordionRegularOne,
-  AccordionRegularTwo,
-  AccordionAnimated,
-  AccordionAnimatedRadio,
-} from '@/components/components/accordion'
+import AccordionRegularOne from '@/components/components/accordion/AccordionRegularOne'
+import AccordionRegularTwo from '@/components/components/accordion/AccordionRegularTwo'
+import AccordionAnimated from '@/components/components/accordion/AccordionAnimated'
+import AccordionAnimatedRadio from '@/components/components/accordion/AccordionAnimatedRadio'
 import {
   accordionRegularOne,
   accordionRegularTwo,
@@ -17,17 +15,7 @@ import {
 } from '@/data/components/accordion'
 
 export default function Accordion(props: any) {
-  const [viewportWidth, setViewportWidth] = useState(0)
-
-  useEffect(() => {
-    setViewportWidth(window.innerWidth)
-    const updateWindowDimensions = () => {
-      const newWidth = window.innerWidth
-      setViewportWidth(newWidth)
-    }
-    window.addEventListener('resize', updateWindowDimensions)
-    return () => window.removeEventListener('resize', updateWindowDimensions)
-  }, [])
+  const viewportWidth = useViewportWidth()
 
   return (
     <>
@@ -36,7 +24,7 @@ export default function Accordion(props: any) {
         description="Accordion - PPUI component"
       />
       <Preview
-        name="Regular one"
+        name="Regular One"
         Comp={() => <AccordionRegularOne />}
         code={props.accordionRegularOne}
         viewportWidth={viewportWidth}
@@ -44,7 +32,7 @@ export default function Accordion(props: any) {
       />
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
-        name="Regular two"
+        name="Regular Two"
         Comp={() => <AccordionRegularTwo />}
         code={props.accordionRegularTwo}
         viewportWidth={viewportWidth}
@@ -60,7 +48,7 @@ export default function Accordion(props: any) {
       />
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
-        name="Animated radio-like"
+        name="Animated Radio-like"
         Comp={() => <AccordionAnimatedRadio />}
         code={props.accordionAnimatedRadio}
         viewportWidth={viewportWidth}

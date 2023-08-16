@@ -1,4 +1,5 @@
 import { Highlighter } from 'shiki'
+import { readFileSync } from 'fs'
 
 interface Obj {
   [x: string]: Item[]
@@ -10,33 +11,24 @@ interface Obj {
 
 interface Item {
   tab: string
-  code: string
+  path: string
+  code?: string
   highlightedCode?: string
 }
 
-export const loopAndHighlight = (object: Obj, highlighter: Highlighter) => {
-  const obj = object
-
+export const loopAndHighlight = (obj: Obj, highlighter: Highlighter) => {
   for (const key in obj) {
-    if (key === 'vue') {
-      obj[key].forEach((item) => {
-        item.highlightedCode = highlighter.codeToHtml(item.code, {
-          lang: 'vue',
-        })
-      })
-    } else if (key === 'svelte') {
-      obj[key].forEach((item) => {
-        item.highlightedCode = highlighter.codeToHtml(item.code, {
-          lang: 'svelte',
-        })
-      })
-    } else {
-      obj[key].forEach((item: Item) => {
-        item.highlightedCode = highlighter.codeToHtml(item.code, {
-          lang: 'jsx',
-        })
-      })
-    }
+    obj[key].forEach((item) => {
+      item.code = readFileSync(item.path, 'utf8')
+      item.highlightedCode = highlighter.codeToHtml(
+        item.code,
+        key === 'vue'
+          ? { lang: 'vue' }
+          : key === 'svelte'
+          ? { lang: 'svelte' }
+          : { lang: 'jsx' }
+      )
+    })
   }
 
   return obj

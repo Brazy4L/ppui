@@ -23,6 +23,7 @@ interface Props {
 
 interface Item {
   tab: string
+  path: string
   code: string
   highlightedCode: string
 }
