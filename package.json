@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "preview": "npx serve@latest out",
-    "format": "./node_modules/.bin/prettier . --write",
+    "format": "./node_modules/.bin/prettier --write .",
+    "format-svelte": "./node_modules/.bin/prettier --write --plugin prettier-plugin-svelte playground/svelte",
     "lint": "next lint",
     "start": "next start"
   },
