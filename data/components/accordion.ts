@@ -8,7 +8,7 @@ export const accordionRegularOne = {
   vue: [
     {
       tab: 'Accordion.vue',
-      path: 'components/components/accordion/AccordionRegularOne.tsx',
+      path: 'playground/vue/src/components/accordion/AccordionRegularOne.vue',
     },
   ],
   svelte: [
@@ -35,7 +35,7 @@ export const accordionRegularTwo = {
   vue: [
     {
       tab: 'Accordion.vue',
-      path: 'components/components/accordion/AccordionRegularTwo.tsx',
+      path: 'playground/vue/src/components/accordion/AccordionRegularTwo.vue',
     },
   ],
   svelte: [
@@ -62,7 +62,7 @@ export const accordionAnimated = {
   vue: [
     {
       tab: 'Accordion.vue',
-      path: 'components/components/accordion/AccordionAnimated.tsx',
+      path: 'playground/vue/src/components/accordion/AccordionAnimated.vue',
     },
   ],
   svelte: [
@@ -89,7 +89,7 @@ export const accordionAnimatedRadio = {
   vue: [
     {
       tab: 'Accordion.vue',
-      path: 'components/components/accordion/AccordionAnimatedRadio.tsx',
+      path: 'playground/vue/src/components/accordion/AccordionAnimatedRadio.vue',
     },
   ],
   svelte: [
