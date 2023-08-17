@@ -34,10 +34,10 @@ export default function Accordion() {
               <hr class="border-light-bg-alternative dark:border-dark-bg-alternative" />
             </Show>
             <details class="group">
-              <summary class="flex cursor-pointer p-4">
-                <h3 class="basis-full text-lg font-bold">{item.heading}</h3>
+              <summary class="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+                <h3 class="font-bold sm:text-lg">{item.heading}</h3>
                 <MaterialSymbolsKeyboardArrowDownRounded
-                  class="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+                  class="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                   width="28"
                   height="28"
                 />

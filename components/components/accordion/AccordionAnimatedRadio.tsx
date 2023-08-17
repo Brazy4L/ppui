@@ -56,7 +56,7 @@ function AccordionItem({
   return (
     <div className="rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
       <div
-        className="flex cursor-pointer p-4"
+        className="grid cursor-pointer grid-flow-col items-center gap-4 p-4"
         onClick={() => (open ? setActiveId(-1) : setActiveId(index))}
         onKeyDown={(e) =>
           (e.code === 'Enter' || e.code === 'Space') &&
@@ -66,18 +66,18 @@ function AccordionItem({
         role="button"
         aria-expanded={open}
       >
-        <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
+        <h3 className="@sm:text-lg font-bold">{item.heading}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
           className={`${
             open ? 'rotate-180' : ''
-          } text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
+          } justify-self-end text-light-text-secondary transition-transform dark:text-dark-text-secondary`}
           width="28"
           height="28"
         />
       </div>
       <div
         className={`${
-          open ? '[grid-template-rows:1fr]' : '[grid-template-rows:0fr]'
+          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         } grid text-light-text-secondary transition-[grid-template-rows] dark:text-dark-text-secondary`}
       >
         <div className="overflow-hidden">

@@ -22,7 +22,14 @@ module.exports = {
         'light-text-primary': '#000', // primary text
         'light-text-secondary': '#727272', // lower contrast text
       },
+      containers: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/container-queries')],
 }

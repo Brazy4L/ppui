@@ -31,10 +31,10 @@ export default function Accordion() {
           key={index}
           className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
         >
-          <summary className="flex cursor-pointer p-4">
-            <h3 className="basis-full text-lg font-bold">{item.heading}</h3>
+          <summary className="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+            <h3 className="@sm:text-lg font-bold">{item.heading}</h3>
             <MaterialSymbolsKeyboardArrowDownRounded
-              className="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+              className="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
               width="28"
               height="28"
             />

@@ -14,7 +14,7 @@ export const accordionRegularOne = {
   svelte: [
     {
       tab: 'Accordion.svelte',
-      path: 'components/components/accordion/AccordionRegularOne.tsx',
+      path: 'playground/svelte/src/components/accordion/AccordionRegularOne.svelte',
     },
   ],
   solid: [
@@ -41,7 +41,7 @@ export const accordionRegularTwo = {
   svelte: [
     {
       tab: 'Accordion.svelte',
-      path: 'components/components/accordion/AccordionRegularTwo.tsx',
+      path: 'playground/svelte/src/components/accordion/AccordionRegularTwo.svelte',
     },
   ],
   solid: [
@@ -68,7 +68,7 @@ export const accordionAnimated = {
   svelte: [
     {
       tab: 'Accordion.svelte',
-      path: 'components/components/accordion/AccordionAnimated.tsx',
+      path: 'playground/svelte/src/components/accordion/AccordionAnimated.svelte',
     },
   ],
   solid: [
@@ -95,7 +95,7 @@ export const accordionAnimatedRadio = {
   svelte: [
     {
       tab: 'Accordion.svelte',
-      path: 'components/components/accordion/AccordionAnimatedRadio.tsx',
+      path: 'playground/svelte/src/components/accordion/AccordionAnimatedRadio.svelte',
     },
   ],
   solid: [

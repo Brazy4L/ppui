@@ -135,7 +135,7 @@ export default function Preview({
             resizeHandleStyles={{ right: { right: '-8px', width: '8px' } }}
             resizeHandleComponent={{ right: <Handle /> }}
           >
-            <div ref={ref} className="flex justify-center">
+            <div ref={ref} className="@container flex justify-center">
               <Comp />
             </div>
           </Rnd>

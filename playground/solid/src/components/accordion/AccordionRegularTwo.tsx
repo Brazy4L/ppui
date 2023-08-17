@@ -30,10 +30,10 @@ export default function Accordion() {
       <For each={items}>
         {(item) => (
           <details class="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary">
-            <summary class="flex cursor-pointer p-4">
-              <span class="basis-full text-lg font-bold">{item.heading}</span>
+            <summary class="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+              <h3 class="font-bold sm:text-lg">{item.heading}</h3>
               <MaterialSymbolsKeyboardArrowDownRounded
-                class="text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
+                class="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
                 width="28"
                 height="28"
               />
