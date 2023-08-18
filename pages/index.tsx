@@ -21,16 +21,16 @@ export default function Home() {
           <h1 className="group text-[max(10vmin,2.25rem)] font-black text-light-primary dark:text-dark-primary">
             P
             <div
-              className={'inline-grid transition-[grid-template-columns] duration-200 ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
-                animate ? '[grid-template-columns:1fr]' : ''
+              className={'inline-grid grid-cols-[0fr] transition-[grid-template-columns] duration-200 ease-in-out will-change-transform '.concat(
+                animate ? 'grid-cols-[1fr]' : ''
               )}
             >
               <div className="overflow-hidden">iss</div>
             </div>
             P
             <div
-              className={'inline-grid transition-[grid-template-columns] duration-200 ease-in-out will-change-transform [grid-template-columns:0fr] '.concat(
-                animate ? '[grid-template-columns:1fr]' : ''
+              className={'inline-grid grid-cols-[0fr] transition-[grid-template-columns] duration-200 ease-in-out will-change-transform '.concat(
+                animate ? 'grid-cols-[1fr]' : ''
               )}
             >
               <div className="overflow-hidden">oor</div>
@@ -62,7 +62,7 @@ export default function Home() {
             aria-label="Repeat animation"
           >
             <MaterialSymbolsRefreshRounded
-              className="text-light-text-secondary transition-transform duration-200 dark:text-dark-text-secondary"
+              className="text-light-text-secondary transition-transform duration-200 ease-in-out dark:text-dark-text-secondary"
               style={{ transform: `rotate(${rotate}turn)` }}
               width="24"
               height="24"
