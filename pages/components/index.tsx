@@ -1,7 +1,8 @@
+import { useContext } from 'react'
 import Link from 'next/link'
 import { getHighlighter, Highlighter } from 'shiki'
+import { Options } from '@/components/componentsLayout'
 import BaseHead from '@/components/baseHead'
-import { ReactNode } from 'react'
 
 const codeBlocks = {
   tw: `module.exports = {
@@ -17,6 +18,9 @@ const codeBlocks = {
         'dark-bg-alternative': '#2b2b2b', // complementary background
         'dark-text-primary': '#fff', // primary text
         'dark-text-secondary': '#858585', // lower contrast text
+        'dark-success': '#42ff8b', // green
+        'dark-warning': '#ffef42', // yellow
+        'dark-failure': '#ff9b9b', // red
         // light theme
         'light-primary': '#7402ed', // primary color
         'light-secondary': '#5102a7', // close to ↑
@@ -25,99 +29,89 @@ const codeBlocks = {
         'light-bg-alternative': '#ede7f9', // complementary background
         'light-text-primary': '#000', // primary text
         'light-text-secondary': '#727272', // lower contrast text
+        'light-success': '#009b3b', // green
+        'light-warning': '#ff9500', // orange
+        'light-failure': '#d60000', // red
       },
     },
   },
   plugins: [],
 }
 `,
-  react: 'npm install --save-dev @iconify-icon/react',
-  solid: 'npm install --save-dev @iconify-icon/solid',
-  vueAndSvelte: 'npm install --save-dev iconify-icon',
-  body: `<body className="bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">
+  bodyReact: `<body className="bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">
+  <!-- DOM -->
+</body>
+`,
+  bodyRest: `<body class="bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">
   <!-- DOM -->
 </body>
 `,
 }
-
+// text-light-text-secondary dark:text-dark-text-secondary
 export default function Components(props: any) {
+  const contextOptions = useContext(Options)
+
   return (
     <div className="mx-auto mt-4 flex w-full max-w-2xl flex-col gap-4 lg:mt-0">
       <BaseHead title="Components" description="Get started with PPUI" />
-      <h2 className="text-xl font-semibold underline">Usage</h2>
-      <p>Add preset of colors to your tailwind config:</p>
-      <Code code={props.code.tw} />
-      <p>Then install Iconify for your framework:</p>
-      <ul className="flex flex-col gap-4">
-        <ListItem name="React" />
-        <Code code={props.code.react} />
-        <ListItem name="Vue or Svelte" />
-        <Code code={props.code.vueAndSvelte} />
-        <ListItem name="Solid" />
-        <Code code={props.code.solid} />
-      </ul>
-      <div>
-        It is advised to apply these classes to your{' '}
-        <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
-          &lt;body /&gt;
-        </div>
-        :
-      </div>
-      <Code code={props.code.body} />
-      <h2 className="mt-4 text-xl font-semibold underline">Details</h2>
-      <div>
-        Every component is designed for
-        <div className="mx-1 inline-block w-fit rounded-lg bg-light-bg-secondary px-2 dark:bg-dark-bg-secondary">
-          320 px
-        </div>
-        minimum width, has both dark and light mode. By default tailwind applies
-        theme that is being used in OS/Browser. You can opt out by changing your{' '}
-        <OutLink href="https://tailwindcss.com/docs/dark-mode" name="config" />.
-      </div>
+      <h1 className="text-center text-xl font-semibold">Intro</h1>
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+      <h2 className="text-lg font-semibold">Usage</h2>
       <p>
-        You can{' '}
-        <OutLink
-          href="https://iconify.design/docs/api/hosting.html"
-          name="self-host"
-        />{' '}
-        icons, extract components, change colors if you want to.
+        Add preset of colors to your{' '}
+        <span className="font-semibold">tailwind</span> config:
       </p>
-      <h2 className="mt-4 text-xl font-semibold underline">Credits</h2>
-      <ul className="flex flex-col gap-4">
-        <li>PPUI uses:</li>
-        <ListItem>
-          <OutLink
-            href="https://github.com/google/material-design-icons"
-            name="Material Icons"
-          />{' '}
-          by Google
-        </ListItem>
-        <ListItem>
-          <OutLink
-            href="https://github.com/gilbarbara/logos"
-            name="SVG Logos"
-          />{' '}
-          by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
-          (only framework icons)
-        </ListItem>
-        <ListItem>
-          and <OutLink href="https://iconify.design" name="Iconify" /> to manage
-          them with ease.
-        </ListItem>
-      </ul>
+      <Code code={props.code.tw} />
+      <p>
+        Apply these classes to your <span className="font-semibold">body</span>{' '}
+        tag:
+      </p>
+      {contextOptions.framework === 'react' ? (
+        <Code code={props.code.bodyReact} />
+      ) : (
+        <Code code={props.code.bodyRest} />
+      )}
+      <p>
+        In order to enjoy icons, that are used in components, install{' '}
+        <OutLink
+          href="https://github.com/antfu/unplugin-icons#install"
+          name="unplugin-icons"
+        />
+        . The icon set that is being used here is{' '}
+        <span className="font-semibold">@iconify-json/material-symbols</span>.
+      </p>
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+      <h2 className="text-lg font-semibold">Details</h2>
+      <p>
+        Every component is designed for{' '}
+        <span className="font-semibold">320 px</span> minimum width, with
+        support for dark and light mode. By default tailwind applies theme that
+        is currently being used in OS/Browser. You can opt out by changing your{' '}
+        <OutLink
+          href="https://tailwindcss.com/docs/dark-mode"
+          name="tailwind config"
+        />
+        .
+      </p>
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
+      <h2 className="text-lg font-semibold">Credits</h2>
+      <p>
+        <span className="font-semibold">PPUI</span> uses:{' '}
+        <OutLink
+          href="https://github.com/google/material-design-icons"
+          name="Material Icons"
+        />{' '}
+        by Google,{' '}
+        <OutLink href="https://github.com/gilbarbara/logos" name="SVG Logos" />{' '}
+        by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
+        (only framework icons) and{' '}
+        <OutLink
+          href="https://github.com/antfu/unplugin-icons"
+          name="unplugin-icons"
+        />{' '}
+        to manage them with ease.
+      </p>
     </div>
-  )
-}
-
-function ListItem({ name, children }: { name?: string; children?: ReactNode }) {
-  return (
-    <li className="flex items-center gap-2">
-      <div className="h-2 w-2 rounded-full bg-light-primary dark:bg-dark-primary"></div>
-      <div>
-        {name}
-        {children}
-      </div>
-    </li>
   )
 }
 
@@ -133,7 +127,7 @@ function Code({ code }: { code: string }) {
 function OutLink({ href, name }: { href: string; name: string }) {
   return (
     <Link
-      className="text-light-primary transition-colors hover:text-light-secondary dark:text-dark-primary dark:hover:text-dark-secondary"
+      className="text-light-primary transition-colors hover:text-light-secondary hover:underline dark:text-dark-primary dark:hover:text-dark-secondary"
       href={href}
       target="_blank"
     >
@@ -158,7 +152,7 @@ export async function getStaticProps() {
         obj[key] = highlighter.codeToHtml(object[key], {
           lang: 'js',
         })
-      } else if (key === 'body') {
+      } else if (key === 'bodyReact' || key === 'bodyRest') {
         obj[key] = highlighter.codeToHtml(object[key], {
           lang: 'html',
         })

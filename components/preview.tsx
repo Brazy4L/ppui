@@ -48,7 +48,7 @@ export default function Preview({
   }, [contextOptions.framework])
 
   return (
-    <div className="mb-4 mt-4 lg:mt-0">
+    <div>
       <div className="flex grid-cols-3 flex-wrap items-center justify-center gap-4 font-semibold xl:grid">
         <h2>{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">

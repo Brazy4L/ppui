@@ -23,6 +23,10 @@ export default function Accordion(props: any) {
         title="Accordion - Components"
         description="Accordion - PPUI component"
       />
+      <h1 className="mt-4 text-center text-xl font-semibold lg:mt-0">
+        Accordion
+      </h1>
+      <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <Preview
         name="Regular One"
         Comp={() => <AccordionRegularOne />}
