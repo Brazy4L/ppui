@@ -50,18 +50,7 @@ export default function Preview({
   return (
     <div className="mb-4 mt-4 lg:mt-0">
       <div className="flex grid-cols-3 flex-wrap items-center justify-center gap-4 font-semibold xl:grid">
-        <div className="flex items-center gap-2">
-          <h2>{name}</h2>
-          <div className="flex gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
-            <MaterialSymbolsWidthRounded
-              className="text-light-text-secondary dark:text-dark-text-secondary"
-              width="24"
-              height="24"
-            />
-            <div className="w-[4ch] text-center">{width}</div>
-            <div>px</div>
-          </div>
-        </div>
+        <h2>{name}</h2>
         <div className="grid grid-cols-2 rounded-lg bg-light-bg-secondary p-1 dark:bg-dark-bg-secondary">
           <button
             className={'flex justify-center gap-2 rounded-lg p-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
@@ -94,38 +83,49 @@ export default function Preview({
             <div>Code</div>
           </button>
         </div>
-        <button
-          className="flex justify-self-end rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              code[contextOptions.framework][activeId].code
-            )
-            copy
-              ? (() => {
-                  setTimeO(setTimeout(() => setCopy(true), 1000))
-                  setCopy(false)
-                })()
-              : (() => {
-                  clearTimeout(timeO)
-                  setTimeO(setTimeout(() => setCopy(true), 1000))
-                })()
-          }}
-          title="Copy"
-        >
-          {copy ? (
-            <MaterialSymbolsContentCopyOutlineRounded
-              className="cursor-pointer text-light-text-secondary dark:text-dark-text-secondary"
+        <div className="flex items-center gap-2 justify-self-end">
+          <div className="flex gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
+            <MaterialSymbolsWidthRounded
+              className="text-light-text-secondary dark:text-dark-text-secondary"
               width="24"
               height="24"
             />
-          ) : (
-            <MaterialSymbolsContentCopyRounded
-              className="text-light-success dark:text-dark-success cursor-pointer"
-              width="24"
-              height="24"
-            />
-          )}
-        </button>
+            <div className="w-[4ch] text-center">{width}</div>
+            <div>px</div>
+          </div>
+          <button
+            className="rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+            onClick={() => {
+              navigator.clipboard.writeText(
+                code[contextOptions.framework][activeId].code
+              )
+              copy
+                ? (() => {
+                    setTimeO(setTimeout(() => setCopy(true), 1000))
+                    setCopy(false)
+                  })()
+                : (() => {
+                    clearTimeout(timeO)
+                    setTimeO(setTimeout(() => setCopy(true), 1000))
+                  })()
+            }}
+            title="Copy"
+          >
+            {copy ? (
+              <MaterialSymbolsContentCopyOutlineRounded
+                className="text-light-text-secondary dark:text-dark-text-secondary"
+                width="24"
+                height="24"
+              />
+            ) : (
+              <MaterialSymbolsContentCopyRounded
+                className="text-light-success dark:text-dark-success"
+                width="24"
+                height="24"
+              />
+            )}
+          </button>
+        </div>
       </div>
       {preview ? (
         <div className="mt-4">
