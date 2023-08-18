@@ -6,6 +6,7 @@ import MaterialSymbolsWidthRounded from '~icons/material-symbols/width-rounded'
 import MaterialSymbolsMimoOutlineRounded from '~icons/material-symbols/mimo-outline-rounded'
 import MaterialSymbolsCodeRounded from '~icons/material-symbols/code-rounded'
 import MaterialSymbolsContentCopyOutlineRounded from '~icons/material-symbols/content-copy-outline-rounded'
+import MaterialSymbolsContentCopyRounded from '~icons/material-symbols/content-copy-rounded'
 
 interface Props {
   name: string
@@ -38,6 +39,8 @@ export default function Preview({
   const contextOptions = useContext(Options)
   const [preview, setPreview] = useState(true)
   const [activeId, setActiveId] = useState(0)
+  const [copy, setCopy] = useState(true)
+  const [timeO, setTimeO] = useState<NodeJS.Timeout>()
   const { ref, width } = useResizeObserver({ box: 'border-box' })
 
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function Preview({
 
   return (
     <div className="mb-4 mt-4 lg:mt-0">
-      <div className="flex flex-wrap items-center justify-center gap-4 font-semibold sm:justify-between">
+      <div className="flex grid-cols-3 flex-wrap items-center justify-center gap-4 font-semibold xl:grid">
         <div className="flex items-center gap-2">
           <h2>{name}</h2>
           <div className="flex gap-2 rounded-lg bg-light-bg-secondary p-2 font-mono dark:bg-dark-bg-secondary">
@@ -92,19 +95,36 @@ export default function Preview({
           </button>
         </div>
         <button
-          className="group flex rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
-          onClick={() =>
+          className="flex justify-self-end rounded-full p-1 ring-1 ring-light-bg-alternative dark:ring-dark-bg-alternative"
+          onClick={() => {
             navigator.clipboard.writeText(
               code[contextOptions.framework][activeId].code
             )
-          }
+            copy
+              ? (() => {
+                  setTimeO(setTimeout(() => setCopy(true), 1000))
+                  setCopy(false)
+                })()
+              : (() => {
+                  clearTimeout(timeO)
+                  setTimeO(setTimeout(() => setCopy(true), 1000))
+                })()
+          }}
           title="Copy"
         >
-          <MaterialSymbolsContentCopyOutlineRounded
-            className="cursor-pointer text-light-text-secondary transition-colors group-focus:text-light-primary dark:text-dark-text-secondary dark:group-focus:text-dark-primary"
-            width="24"
-            height="24"
-          />
+          {copy ? (
+            <MaterialSymbolsContentCopyOutlineRounded
+              className="cursor-pointer text-light-text-secondary dark:text-dark-text-secondary"
+              width="24"
+              height="24"
+            />
+          ) : (
+            <MaterialSymbolsContentCopyRounded
+              className="text-light-success dark:text-dark-success cursor-pointer"
+              width="24"
+              height="24"
+            />
+          )}
         </button>
       </div>
       {preview ? (
@@ -135,7 +155,7 @@ export default function Preview({
             resizeHandleStyles={{ right: { right: '-8px', width: '8px' } }}
             resizeHandleComponent={{ right: <Handle /> }}
           >
-            <div ref={ref} className="@container flex justify-center">
+            <div ref={ref} className="flex justify-center @container">
               <Comp />
             </div>
           </Rnd>
