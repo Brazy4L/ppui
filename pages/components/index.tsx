@@ -47,7 +47,7 @@ const codeBlocks = {
 </body>
 `,
 }
-// text-light-text-secondary dark:text-dark-text-secondary
+
 export default function Components(props: any) {
   const contextOptions = useContext(Options)
 
@@ -72,7 +72,7 @@ export default function Components(props: any) {
         <Code code={props.code.bodyRest} />
       )}
       <p>
-        In order to enjoy icons, that are used in components, install{' '}
+        In order to enjoy icons that are used in components, install{' '}
         <OutLink
           href="https://github.com/antfu/unplugin-icons#install"
           name="unplugin-icons"
@@ -145,22 +145,17 @@ export async function getStaticProps() {
     object: { [x: string]: string },
     highlighter: Highlighter
   ) => {
-    const obj: { [x: string]: string } = {}
+    const obj: typeof object = {}
 
     for (const key in object) {
-      if (key === 'tw') {
-        obj[key] = highlighter.codeToHtml(object[key], {
-          lang: 'js',
-        })
-      } else if (key === 'bodyReact' || key === 'bodyRest') {
-        obj[key] = highlighter.codeToHtml(object[key], {
-          lang: 'html',
-        })
-      } else {
-        obj[key] = highlighter.codeToHtml(object[key], {
-          lang: 'sh',
-        })
-      }
+      obj[key] = highlighter.codeToHtml(
+        object[key],
+        key === 'tw'
+          ? { lang: 'js' }
+          : key === 'bodyReact' || key === 'bodyRest'
+          ? { lang: 'html' }
+          : { lang: 'sh' }
+      )
     }
 
     return obj
