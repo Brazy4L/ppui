@@ -12,6 +12,9 @@ const nextConfig = {
 
     return config
   },
+  experimental: {
+    largePageDataBytes: 1000000000
+  }
 }
 
 module.exports = nextConfig

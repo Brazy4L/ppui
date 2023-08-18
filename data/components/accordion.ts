@@ -74,6 +74,10 @@ export const accordionAnimated = {
       tab: 'Accordion.svelte',
       path: 'playground/svelte/src/components/accordion/AccordionAnimated.svelte',
     },
+    {
+      tab: 'AccordionAnimatedItem.svelte',
+      path: 'playground/svelte/src/components/accordion/AccordionAnimatedItem.svelte',
+    },
   ],
   solid: [
     {
@@ -104,6 +108,10 @@ export const accordionAnimatedRadio = {
     {
       tab: 'Accordion.svelte',
       path: 'playground/svelte/src/components/accordion/AccordionAnimatedRadio.svelte',
+    },
+    {
+      tab: 'AccordionAnimatedRadioItem.svelte',
+      path: 'playground/svelte/src/components/accordion/AccordionAnimatedRadioItem.svelte',
     },
   ],
   solid: [
