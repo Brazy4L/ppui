@@ -66,7 +66,7 @@ function AccordionItem({
         role="button"
         aria-expanded={open}
       >
-        <h3 className="@sm:text-lg font-bold">{item.heading}</h3>
+        <h3 className="font-bold @sm:text-lg">{item.heading}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
           className={`${
             open ? 'rotate-180' : ''

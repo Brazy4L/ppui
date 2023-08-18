@@ -32,7 +32,7 @@ export default function Accordion() {
           className="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
         >
           <summary className="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
-            <h3 className="@sm:text-lg font-bold">{item.heading}</h3>
+            <h3 className="font-bold @sm:text-lg">{item.heading}</h3>
             <MaterialSymbolsKeyboardArrowDownRounded
               className="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
               width="28"
