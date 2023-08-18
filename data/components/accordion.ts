@@ -64,6 +64,10 @@ export const accordionAnimated = {
       tab: 'Accordion.vue',
       path: 'playground/vue/src/components/accordion/AccordionAnimated.vue',
     },
+    {
+      tab: 'AccordionAnimatedItem.vue',
+      path: 'playground/vue/src/components/accordion/AccordionAnimatedItem.vue',
+    },
   ],
   svelte: [
     {
@@ -90,6 +94,10 @@ export const accordionAnimatedRadio = {
     {
       tab: 'Accordion.vue',
       path: 'playground/vue/src/components/accordion/AccordionAnimatedRadio.vue',
+    },
+    {
+      tab: 'AccordionAnimatedRadioItem.vue',
+      path: 'playground/vue/src/components/accordion/AccordionAnimatedRadioItem.vue',
     },
   ],
   svelte: [
