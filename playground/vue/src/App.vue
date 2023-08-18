@@ -10,6 +10,6 @@ import AccordionAnimatedRadio from './components/accordion/AccordionAnimatedRadi
     <!-- <AccordionRegularOne /> -->
     <!-- <AccordionRegularTwo /> -->
     <!-- <AccordionAnimated /> -->
-    <AccordionAnimatedRadio />
+    <!-- <AccordionAnimatedRadio /> -->
   </div>
 </template>
