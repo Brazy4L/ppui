@@ -33,7 +33,9 @@
       <hr class="border-light-bg-alternative dark:border-dark-bg-alternative" />
     {/if}
     <details class="group">
-      <summary class="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+      <summary
+        class="grid cursor-pointer grid-flow-col items-center gap-4 p-4 [&::-webkit-details-marker]:hidden"
+      >
         <h3 class="font-bold sm:text-lg">{heading}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
           class="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
