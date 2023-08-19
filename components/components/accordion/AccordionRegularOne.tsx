@@ -33,7 +33,7 @@ export default function Accordion() {
             <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
           )}
           <details className="group">
-            <summary className="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+            <summary className="grid cursor-pointer grid-flow-col items-center gap-4 p-4 [&::-webkit-details-marker]:hidden">
               <h3 className="font-bold @sm:text-lg">{item.heading}</h3>
               <MaterialSymbolsKeyboardArrowDownRounded
                 className="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"

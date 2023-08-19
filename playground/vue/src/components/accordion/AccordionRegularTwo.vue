@@ -31,7 +31,9 @@ const items = [
       class="group rounded-lg bg-light-bg-secondary dark:bg-dark-bg-secondary"
       v-for="item in items"
     >
-      <summary class="grid cursor-pointer grid-flow-col items-center gap-4 p-4">
+      <summary
+        class="grid cursor-pointer grid-flow-col items-center gap-4 p-4 [&::-webkit-details-marker]:hidden"
+      >
         <h3 class="font-bold sm:text-lg">{{ item.heading }}</h3>
         <MaterialSymbolsKeyboardArrowDownRounded
           class="justify-self-end text-light-text-secondary group-open:rotate-180 dark:text-dark-text-secondary"
