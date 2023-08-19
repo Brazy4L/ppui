@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path id="a" d="M0 16h14v9a7 7 0 1 1-14 0v-9ZM21 16h6v16h-6z"/><path id="b" d="M32 8c0 4.418-3.582 7-8 7s-8-2.582-8-7a8 8 0 1 1 16 0Z"/>
 <style>
 #a {fill: #000}
-#b {fill: #7402ed}
+#b {fill: #7303f0}
 @media (prefers-color-scheme: dark)
 {
 #a {fill: #fff}
