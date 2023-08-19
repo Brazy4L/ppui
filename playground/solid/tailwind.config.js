@@ -13,7 +13,7 @@ export default {
         'dark-text-primary': '#fff', // primary text
         'dark-text-secondary': '#858585', // lower contrast text
         // light theme
-        'light-primary': '#7402ed', // primary color
+        'light-primary': '#7303f0', // primary color
         'light-secondary': '#5102a7', // close to ↑
         'light-bg-primary': '#fefefe', // main background
         'light-bg-secondary': '#f9f7fd', // complementary background
