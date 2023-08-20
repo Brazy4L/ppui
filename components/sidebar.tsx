@@ -6,7 +6,10 @@ import LogosVue from '~icons/logos/vue'
 import LogosSvelteIcon from '~icons/logos/svelte-icon'
 import LogosSolidjsIcon from '~icons/logos/solidjs-icon'
 
-const links = [{ name: 'Accordion', href: '/components/accordion' }]
+const links = [
+  { name: 'Accordion', href: '/components/accordion' },
+  { name: 'Share', href: '/components/share' },
+]
 
 const frameworks = [
   {
