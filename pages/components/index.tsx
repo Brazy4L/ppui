@@ -96,7 +96,7 @@ export default function Components(props: any) {
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
       <h2 className="text-lg font-semibold">Credits</h2>
       <p>
-        <span className="font-semibold">PPUI</span> uses:{' '}
+        <span className="font-semibold">PPUI</span> uses{' '}
         <OutLink
           href="https://github.com/google/material-design-icons"
           name="Material Icons"
@@ -104,7 +104,7 @@ export default function Components(props: any) {
         by Google,{' '}
         <OutLink href="https://github.com/gilbarbara/logos" name="SVG Logos" />{' '}
         by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
-        (only framework icons) and{' '}
+        and{' '}
         <OutLink
           href="https://github.com/antfu/unplugin-icons"
           name="unplugin-icons"
