@@ -13,6 +13,7 @@
       navigator.clipboard.writeText(document.URL)
     }
   }}
+  title="Share"
 >
   <MaterialSymbolsShare
     className="text-light-text-secondary dark:text-dark-text-secondary"
