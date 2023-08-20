@@ -5,8 +5,34 @@ import LogosReact from '~icons/logos/react'
 import LogosVue from '~icons/logos/vue'
 import LogosSvelteIcon from '~icons/logos/svelte-icon'
 import LogosSolidjsIcon from '~icons/logos/solidjs-icon'
+import MaterialSymbolsDns from '~icons/material-symbols/dns'
+import MaterialSymbolsShare from '~icons/material-symbols/share'
+import MaterialSymbolsPlayArrowRounded from '~icons/material-symbols/play-arrow-rounded'
 
-const links = [{ name: 'Accordion', href: '/components/accordion' }]
+const links = [
+  {
+    name: 'Accordion',
+    href: '/components/accordion',
+    icon: (
+      <MaterialSymbolsDns
+        className="text-light-text-secondary dark:text-dark-text-secondary"
+        width="16"
+        height="16"
+      />
+    ),
+  },
+  {
+    name: 'Share',
+    href: '/components/share',
+    icon: (
+      <MaterialSymbolsShare
+        className="text-light-text-secondary dark:text-dark-text-secondary"
+        width="16"
+        height="16"
+      />
+    ),
+  },
+]
 
 const frameworks = [
   {
@@ -64,13 +90,18 @@ export default function Sidebar({
       <div className="flex flex-col gap-2">
         <Heading heading="Get started" />
         <Link
-          className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
+          className={'flex items-center gap-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
             router.pathname === '/components'
               ? 'text-light-primary dark:text-dark-primary'
               : ''
           )}
           href="/components"
         >
+          <MaterialSymbolsPlayArrowRounded
+            className="text-light-text-secondary dark:text-dark-text-secondary"
+            width="16"
+            height="16"
+          />
           Intro
         </Link>
       </div>
@@ -78,7 +109,7 @@ export default function Sidebar({
         <Heading heading="Elements" />
         {links.map((link, index) => (
           <Link
-            className={'transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
+            className={'flex items-center gap-2 transition-colors hover:text-light-primary dark:hover:text-dark-primary '.concat(
               router.pathname === link.href
                 ? 'text-light-primary dark:text-dark-primary'
                 : ''
@@ -86,6 +117,7 @@ export default function Sidebar({
             key={index}
             href={link.href}
           >
+            {link.icon}
             {link.name}
           </Link>
         ))}

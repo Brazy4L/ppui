@@ -3,6 +3,7 @@ import AccordionRegularOne from './components/accordion/AccordionRegularOne.vue'
 import AccordionRegularTwo from './components/accordion/AccordionRegularTwo.vue'
 import AccordionAnimated from './components/accordion/AccordionAnimated.vue'
 import AccordionAnimatedRadio from './components/accordion/AccordionAnimatedRadio.vue'
+import ShareRegular from './components/share/ShareRegular.vue'
 </script>
 
 <template>
@@ -11,5 +12,6 @@ import AccordionAnimatedRadio from './components/accordion/AccordionAnimatedRadi
     <!-- <AccordionRegularTwo /> -->
     <!-- <AccordionAnimated /> -->
     <!-- <AccordionAnimatedRadio /> -->
+    <!-- <ShareRegular /> -->
   </div>
 </template>
