@@ -52,65 +52,75 @@ export default function Components(props: any) {
   const contextOptions = useContext(Options)
 
   return (
-    <div className="mx-auto mt-4 flex w-full max-w-2xl flex-col gap-4 lg:mt-0">
+    <div className="mt-4 flex flex-col gap-4 lg:mt-0">
       <BaseHead title="Components" description="Get started with PPUI" />
       <h1 className="text-center text-xl font-semibold">Intro</h1>
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
-      <h2 className="text-lg font-semibold">Usage</h2>
-      <p>
-        Add preset of colors to your{' '}
-        <span className="font-semibold">tailwind</span> config:
-      </p>
-      <Code code={props.code.tw} />
-      <p>
-        Apply these classes to your <span className="font-semibold">body</span>{' '}
-        tag:
-      </p>
-      {contextOptions.framework === 'react' ? (
-        <Code code={props.code.bodyReact} />
-      ) : (
-        <Code code={props.code.bodyRest} />
-      )}
-      <p>
-        In order to enjoy icons that are used in components, install{' '}
-        <OutLink
-          href="https://github.com/antfu/unplugin-icons#install"
-          name="unplugin-icons"
-        />
-        . The icon set that is being used here is{' '}
-        <span className="font-semibold">@iconify-json/material-symbols</span>.
-      </p>
+      <div className="mx-auto flex max-w-2xl flex-col gap-4">
+        <h2 className="text-lg font-semibold">Usage</h2>
+        <p>
+          Add preset of colors to your{' '}
+          <span className="font-semibold">tailwind</span> config:
+        </p>
+        <Code code={props.code.tw} />
+        <p>
+          Apply these classes to your{' '}
+          <span className="font-semibold">body</span> tag:
+        </p>
+        {contextOptions.framework === 'react' ? (
+          <Code code={props.code.bodyReact} />
+        ) : (
+          <Code code={props.code.bodyRest} />
+        )}
+        <p>
+          In order to enjoy icons that are used in components, install{' '}
+          <OutLink
+            href="https://github.com/antfu/unplugin-icons#install"
+            name="unplugin-icons"
+          />
+          . The icon set that is being used here is{' '}
+          <span className="font-semibold">@iconify-json/material-symbols</span>.
+        </p>
+      </div>
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
-      <h2 className="text-lg font-semibold">Details</h2>
-      <p>
-        Every component is designed for{' '}
-        <span className="font-semibold">320 px</span> minimum width, with
-        support for dark and light mode. By default tailwind applies theme that
-        is currently being used in OS/Browser. You can opt out by changing your{' '}
-        <OutLink
-          href="https://tailwindcss.com/docs/dark-mode"
-          name="tailwind config"
-        />
-        .
-      </p>
+      <div className="mx-auto flex max-w-2xl flex-col gap-4">
+        <h2 className="text-lg font-semibold">Details</h2>
+        <p>
+          Every component is designed for{' '}
+          <span className="font-semibold">320 px</span> minimum width, with
+          support for dark and light mode. By default tailwind applies theme
+          that is currently being used in OS/Browser. You can opt out by
+          changing your{' '}
+          <OutLink
+            href="https://tailwindcss.com/docs/dark-mode"
+            name="tailwind config"
+          />
+          .
+        </p>
+      </div>
       <hr className="border-light-bg-alternative dark:border-dark-bg-alternative" />
-      <h2 className="text-lg font-semibold">Credits</h2>
-      <p>
-        <span className="font-semibold">PPUI</span> uses{' '}
-        <OutLink
-          href="https://github.com/google/material-design-icons"
-          name="Material Icons"
-        />{' '}
-        by Google,{' '}
-        <OutLink href="https://github.com/gilbarbara/logos" name="SVG Logos" />{' '}
-        by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
-        and{' '}
-        <OutLink
-          href="https://github.com/antfu/unplugin-icons"
-          name="unplugin-icons"
-        />{' '}
-        to manage them with ease.
-      </p>
+      <div className="mx-auto flex max-w-2xl flex-col gap-4">
+        <h2 className="text-lg font-semibold">Credits</h2>
+        <p>
+          <span className="font-semibold">PPUI</span> uses{' '}
+          <OutLink
+            href="https://github.com/google/material-design-icons"
+            name="Material Icons"
+          />{' '}
+          by Google,{' '}
+          <OutLink
+            href="https://github.com/gilbarbara/logos"
+            name="SVG Logos"
+          />{' '}
+          by <OutLink href="https://github.com/gilbarbara" name="Gil Barbara" />{' '}
+          and{' '}
+          <OutLink
+            href="https://github.com/antfu/unplugin-icons"
+            name="unplugin-icons"
+          />{' '}
+          to manage them with ease.
+        </p>
+      </div>
     </div>
   )
 }
