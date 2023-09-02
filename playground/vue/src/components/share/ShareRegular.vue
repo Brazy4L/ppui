@@ -19,7 +19,7 @@ const shareLink = () => {
     title="Share"
   >
     <MaterialSymbolsShare
-      className="text-light-text-secondary dark:text-dark-text-secondary"
+      class="text-light-text-secondary dark:text-dark-text-secondary"
       width="28"
       height="28"
     />
