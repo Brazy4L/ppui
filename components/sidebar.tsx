@@ -6,6 +6,7 @@ import LogosVue from '~icons/logos/vue'
 import LogosSvelteIcon from '~icons/logos/svelte-icon'
 import LogosSolidjsIcon from '~icons/logos/solidjs-icon'
 import MaterialSymbolsDns from '~icons/material-symbols/dns'
+import MaterialSymbolsMoreHoriz from '~icons/material-symbols/more-horiz'
 import MaterialSymbolsShare from '~icons/material-symbols/share'
 import MaterialSymbolsPlayArrowRounded from '~icons/material-symbols/play-arrow-rounded'
 
@@ -15,6 +16,17 @@ const links = [
     href: '/components/accordion',
     icon: (
       <MaterialSymbolsDns
+        className="text-light-text-secondary dark:text-dark-text-secondary"
+        width="16"
+        height="16"
+      />
+    ),
+  },
+  {
+    name: 'Truncated Box',
+    href: '/components/box',
+    icon: (
+      <MaterialSymbolsMoreHoriz
         className="text-light-text-secondary dark:text-dark-text-secondary"
         width="16"
         height="16"
