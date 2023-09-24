@@ -6,7 +6,7 @@ import Preview from '@/components/preview'
 import BoxRegular from '@/components/components/box/BoxRegular'
 import { boxRegular } from '@/data/components/box'
 
-export default function Share(props: any) {
+export default function Box(props: any) {
   const viewportWidth = useViewportWidth()
 
   return (
